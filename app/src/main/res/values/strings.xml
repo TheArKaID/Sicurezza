@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Sicurezza</string>
-    <string name="button">Button</string>
+    <string name="btnSignIn">SIGN IN</string>
+    <string name="divKeamanan">DIVISI KEAMANAN</string>
+    <string name="timeline">Anda Nyaman Karena Kami Amankan</string>
+
 </resources>
