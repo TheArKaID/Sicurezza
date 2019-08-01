@@ -31,6 +31,9 @@ public class NavPage extends AppCompatActivity {
         rankFragment = new RankFragment();
         pointFragment = new PointFragment();
 
+        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+        setFragment(tankkoFragment);
+
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
