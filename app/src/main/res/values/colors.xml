@@ -3,7 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="basicApps">#2c2c2c</color>
+    <color name="basicApps">#2C2C2C</color>
     <color name="whiteColors">#FFFFFF</color>
     <color name="blueColors">#0253B3</color>
+    <color name="whiteTransparan">#80FFFFFF</color>
+
+    //warna muhammadiyah
+    <color name="colorMuh1">#004028</color>
+    <color name="colorMuh2">#ff9800</color>
+    <color name="whiteMuh3">#b0272b</color>
 </resources>
