@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/colorMuh1">
+        android:background="@color/whiteColors">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="56dp"
@@ -20,8 +20,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_person_outline_black_24dp"
-            app:civ_circle_background_color="@color/whiteColors"
+            android:src="@drawable/ic_person_black_24dp"
+            app:civ_circle_background_color="@color/whiteMuh3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/resident"
-                android:textColor="@color/whiteColors"
+                android:textColor="@color/whiteMuh3"
                 android:textSize="24sp" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/noKamar"
-                android:textColor="@color/whiteColors" />
+                android:textColor="@color/whiteMuh3" />
 
         </LinearLayout>
 

@@ -14,15 +14,15 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@color/colorMuh1">
+            android:background="@color/whiteMuh3">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="33dp"
-                    android:layout_height="32dp"
+                    android:layout_width="27dp"
+                    android:layout_height="20dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:src="@drawable/ic_power_settings_new_black_24dp"
@@ -35,17 +35,18 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="285dp"
-                    android:layout_height="44dp"
+                    android:layout_width="283dp"
+                    android:layout_height="37dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/PointTitle"
                     android:textAlignment="center"
                     android:textColor="@color/whiteColors"
-                    android:textSize="30dp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.382"
@@ -54,8 +55,8 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="31dp"
+                    android:layout_width="23dp"
+                    android:layout_height="25dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
