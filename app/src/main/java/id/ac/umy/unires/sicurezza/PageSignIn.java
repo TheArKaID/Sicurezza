@@ -2,6 +2,7 @@ package id.ac.umy.unires.sicurezza;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +26,9 @@ import static id.ac.umy.unires.sicurezza.utils.ServerAPI.LoginURL;
 
 public class PageSignIn extends AppCompatActivity {
 
+    SharedPreferences pref;
+    SharedPreferences.Editor prefEdit;
+
     ProgressDialog progrss;
     String Username, Password;
     EditText etUser, etPass;
@@ -33,6 +37,8 @@ public class PageSignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_sign_in);
         getSupportActionBar().hide();
+
+        pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
 
         etUser = findViewById(R.id.etUsername);
         etPass = findViewById(R.id.etPassword);
@@ -59,6 +65,11 @@ public class PageSignIn extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             if(response.equals("Logged In")){
+                                prefEdit = pref.edit();
+                                prefEdit.putString("username", username);
+                                prefEdit.putString("password", password);
+                                prefEdit.apply();
+
                                 Intent intentLogin = new Intent(PageSignIn.this, NavPage.class);
                                 intentLogin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intentLogin);
