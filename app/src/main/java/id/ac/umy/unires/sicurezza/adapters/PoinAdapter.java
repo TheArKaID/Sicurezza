@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 import id.ac.umy.unires.sicurezza.R;
 import id.ac.umy.unires.sicurezza.models.PoinModel;
-import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
 public class PoinAdapter extends RecyclerView.Adapter<PoinAdapter.ViewHolder>  {
 
@@ -25,7 +24,7 @@ public class PoinAdapter extends RecyclerView.Adapter<PoinAdapter.ViewHolder>  {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tankko, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_point, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -41,7 +40,7 @@ public class PoinAdapter extends RecyclerView.Adapter<PoinAdapter.ViewHolder>  {
         return getPoinAdapter().size();
     }
 
-    public ArrayList<PoinModel> getPoinAdapter() {
+    private ArrayList<PoinModel> getPoinAdapter() {
         return poinModels;
     }
 
@@ -49,13 +48,13 @@ public class PoinAdapter extends RecyclerView.Adapter<PoinAdapter.ViewHolder>  {
         this.poinModels = poinModels;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView nama, nokamar, point;
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nama = itemView.findViewById(R.id.tv_Tankko);
-            nokamar = itemView.findViewById(R.id.tv_pointResident);
-            point = itemView.findViewById(R.id.tv_Point);
+            nama = itemView.findViewById(R.id.tv_pointResident);
+            nokamar = itemView.findViewById(R.id.tv_pointNoKamar);
+            point = itemView.findViewById(R.id.tv_pointPoin);
         }
     }
 }

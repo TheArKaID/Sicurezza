@@ -3,11 +3,14 @@ package id.ac.umy.unires.sicurezza;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,10 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import id.ac.umy.unires.sicurezza.adapters.PoinAdapter;
 import id.ac.umy.unires.sicurezza.models.PoinModel;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
@@ -35,7 +43,7 @@ public class PointFragment extends Fragment {
     ArrayList<PoinModel> poinModels;
     RecyclerView recyclerView;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_point, container, false);
 
         loadingBar();
@@ -52,7 +60,25 @@ public class PointFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            for(int i = 0; i < jsonArray.length(); i++){
+                                PoinModel model = new PoinModel();
+                                String object = jsonArray.getString(i);
+                                JSONObject jsonObject = new JSONObject(object);
+                                model.setId(jsonObject.getString("idresident"));
+                                model.setKamar(jsonObject.getString("idresident"));
+                                model.setNama(jsonObject.getString("namaresident"));
+                                model.setPoin(jsonObject.getString("poin"));
+                                poinModels.add(model);
+                            }
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        }
+                        adapter();
+                        progress.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
@@ -62,13 +88,20 @@ public class PointFragment extends Fragment {
                     }
                 }){
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("idsenior", TankkoFragment.idsenior);
                 return params;
             }
         };
         Volley.newRequestQueue(getContext()).add(request);
+    }
+
+    private void adapter() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        PoinAdapter poinAdapter = new PoinAdapter(getContext());
+        poinAdapter.setPoinAdapter(poinModels);
+        recyclerView.setAdapter(poinAdapter);
     }
 
 
