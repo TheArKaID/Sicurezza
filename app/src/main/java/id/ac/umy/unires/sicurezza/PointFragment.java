@@ -2,6 +2,7 @@ package id.ac.umy.unires.sicurezza;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -29,7 +30,6 @@ import java.util.Map;
 
 import id.ac.umy.unires.sicurezza.adapters.PoinAdapter;
 import id.ac.umy.unires.sicurezza.models.PoinModel;
-import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekResidentURL;
 
@@ -52,7 +52,19 @@ public class PointFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         loadResident();
 
+        ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                detailResident(poinModels.get(position).getId());
+            }
+        });
         return view;
+    }
+
+    private void detailResident(String id) {
+        Intent move = new Intent(getContext(), Resident.class);
+        move.putExtra("idresident", id);
+        startActivity(move);
     }
 
     private void loadResident() {
