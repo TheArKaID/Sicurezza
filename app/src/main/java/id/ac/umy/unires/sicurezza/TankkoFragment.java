@@ -38,7 +38,7 @@ public class TankkoFragment extends Fragment {
     public TankkoFragment() {}
 
     ProgressDialog progress;
-    String idsenior = "U41A";
+    public static String idsenior = "U41A";
     ArrayList<TengKoModel> tengKoModels;
     RecyclerView recyclerView;
 
