@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import java.util.Objects;
+
 public class NavPage extends AppCompatActivity {
 
     private BottomNavigationView mMainNav;
@@ -22,16 +24,16 @@ public class NavPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_page);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
-        mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
-        mMainNav = (BottomNavigationView) findViewById(R.id.bottom_nav);
+        mMainFrame = findViewById(R.id.main_frame);
+        mMainNav = findViewById(R.id.bottom_nav);
 
         tankkoFragment = new TankkoFragment();
         rankFragment = new RankFragment();
         pointFragment = new PointFragment();
 
-        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
+        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
         setFragment(tankkoFragment);
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,17 +42,14 @@ public class NavPage extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
 
                     case R.id.navtankko :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
                         setFragment(tankkoFragment);
                         return true;
 
                     case R.id.navrank :
-                        mMainNav.setItemBackgroundResource(R.color.colorAccent);
                         setFragment(rankFragment);
                         return true;
 
                     case R.id.navpoint :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
                         setFragment(pointFragment);
                         return  true;
 

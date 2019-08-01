@@ -1,13 +1,15 @@
 package id.ac.umy.unires.sicurezza;
 
-
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,30 +25,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import id.ac.umy.unires.sicurezza.adapters.TengKoAdapter;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekTengKoURL;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class TankkoFragment extends Fragment {
 
 
-    public TankkoFragment() {
-        // Required empty public constructor
-    }
+    public TankkoFragment() {}
 
+    ProgressDialog progress;
     String idsenior = "U41A";
     ArrayList<TengKoModel> tengKoModels;
     RecyclerView recyclerView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tankko, container, false);
+        loadingBar();
         tengKoModels = new ArrayList<>();
         recyclerView = view.findViewById(R.id.tankko_recycler);
         recyclerView.setHasFixedSize(true);
@@ -73,25 +72,28 @@ public class TankkoFragment extends Fragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         }
                         adapter();
+                        progress.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(getContext(), "Gagal, " + ((error.getMessage()!=null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        progress.dismiss();
                     }
                 }){
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("idsenior", idsenior);
                 return params;
             }
         };
 
-        Volley.newRequestQueue(getContext()).add(request);
+        Volley.newRequestQueue(Objects.requireNonNull(getContext())).add(request);
     }
 
     private void adapter() {
@@ -99,6 +101,15 @@ public class TankkoFragment extends Fragment {
         TengKoAdapter tengKoAdapter = new TengKoAdapter(getContext());
         tengKoAdapter.setTengKoModels(tengKoModels);
         recyclerView.setAdapter(tengKoAdapter);
+    }
+
+    private void loadingBar() {
+        if(progress==null)
+            progress = new ProgressDialog(getContext());
+        progress.setMessage("Memeriksa Data TengKo");
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
+        progress.show();
     }
 
 }
