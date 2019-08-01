@@ -55,15 +55,16 @@ public class PointFragment extends Fragment {
         ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                detailResident(poinModels.get(position).getId());
+                detailResident(poinModels.get(position).getId(), poinModels.get(position).getNama());
             }
         });
         return view;
     }
 
-    private void detailResident(String id) {
+    private void detailResident(String id, String nama) {
         Intent move = new Intent(getContext(), Resident.class);
         move.putExtra("idresident", id);
+        move.putExtra("namaresident", nama);
         startActivity(move);
     }
 

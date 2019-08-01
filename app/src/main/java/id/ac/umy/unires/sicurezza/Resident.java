@@ -1,7 +1,13 @@
 package id.ac.umy.unires.sicurezza;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -10,22 +16,46 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import id.ac.umy.unires.sicurezza.adapters.PoinDetailAdapter;
+import id.ac.umy.unires.sicurezza.models.DetailPoinModel;
 
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekDetailResidentURL;
 
 public class Resident extends AppCompatActivity {
 
-    String idresident;
+    ProgressDialog progress;
+    String idresident, namaresident;
+    ArrayList<DetailPoinModel> detailPoinModels;
+    RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resident);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        loadingBar();
+
+        TextView namaResident = findViewById(R.id.tv_DetailNamaReident);
+        TextView idResident = findViewById(R.id.tv_DetailIDResident);
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
+        namaresident = Objects.requireNonNull(getIntent().getExtras()).getString("namaresident");
+
+        detailPoinModels = new ArrayList<>();
+        recyclerView = findViewById(R.id.rv_detailpoin);
+        recyclerView.setHasFixedSize(true);
+
+        namaResident.setText(namaresident);
+        idResident.setText(idresident);
 
         loadDataResident(idresident);
     }
@@ -35,17 +65,35 @@ public class Resident extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            for(int i = 0; i < jsonArray.length(); i++){
+                                DetailPoinModel model = new DetailPoinModel();
+                                String object = jsonArray.getString(i);
+                                JSONObject jsonObject = new JSONObject(object);
+                                model.setPenjelasan(jsonObject.getString("penjelasan"));
+                                model.setTanggal(jsonObject.getString("tanggalpoin"));
+                                model.setPoin(jsonObject.getString("poin"));
+                                detailPoinModels.add(model);
+                            }
 
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        }
+                        adapter();
+                        progress.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Log.d("ResidentDetailError", error.getMessage()!=null?error.getMessage():"Error");
+                        progress.dismiss();
                     }
                 }){
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("idsenior", TankkoFragment.idsenior);
                 params.put("idresident", idresident);
@@ -53,5 +101,21 @@ public class Resident extends AppCompatActivity {
             }
         };
         Volley.newRequestQueue(this).add(request);
+    }
+
+    private void adapter() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        PoinDetailAdapter poinDetailAdapter = new PoinDetailAdapter(this);
+        poinDetailAdapter.setPoinDetailAdapter(detailPoinModels);
+        recyclerView.setAdapter(poinDetailAdapter);
+    }
+
+    private void loadingBar() {
+        if(progress==null)
+            progress = new ProgressDialog(this);
+        progress.setMessage("Memeriksa Data Resident");
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
+        progress.show();
     }
 }
