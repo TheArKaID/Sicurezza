@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Resident"></activity>
+        <activity android:name=".AddPoint"></activity>
+        <activity android:name=".Resident" />
         <activity android:name=".NavPage" />
         <activity android:name=".PageSignIn" />
         <activity android:name=".MainActivity">

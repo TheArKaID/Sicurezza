@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/whiteMuh3">
+        android:background="@color/whiteColors">
 
         <TextView
             android:id="@+id/tv_Tankko"
@@ -22,7 +22,7 @@
             android:layout_marginEnd="80dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/texttankko"
-            android:textColor="@color/whiteColors"
+            android:textColor="@color/whiteMuh3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:ems="10"
             tools:text="@string/number"
             android:textAlignment="center"
-            android:textColor="@color/whiteColors"
+            android:textColor="@color/whiteMuh3"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -11,7 +11,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/colorMuh2">
+        android:background="@color/whiteColors">
 
         <de.hdodenhof.circleimageview.CircleImageView
 
@@ -29,7 +29,7 @@
             app:layout_constraintEnd_toStartOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:civ_circle_background_color="@color/colorMuh1"/>
+            app:civ_circle_background_color="@color/whiteMuh3"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:text="@string/resident"
-                android:textColor="@color/whiteColors"
+                android:textColor="@color/whiteMuh3"
                 android:textSize="24sp"/>
 
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/usroh"
-                android:textColor="@color/whiteColors"
+                android:textColor="@color/whiteMuh3"
                 tools:layout_editor_absoluteX="76dp"
                 tools:layout_editor_absoluteY="38dp"/>
 

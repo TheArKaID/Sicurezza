@@ -4,60 +4,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_height="match_parent"
     android:padding="6dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/whiteColors">
+        android:background="@color/colorMuh1">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+        <EditText
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_person_black_24dp"
-            app:civ_circle_background_color="@color/whiteMuh3"
+            android:text="@string/number"
+            android:textAlignment="center"
+            android:textColor="@color/whiteColors"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="315dp"
-            android:layout_height="57dp"
+            android:id="@+id/linearLayout3"
+            android:layout_width="301dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_pointResident"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/resident"
-                android:textColor="@color/whiteMuh3"
-                android:textSize="24sp" />
+                android:layout_height="30dp"
+                android:text="@string/Pelanggarn"
+                android:textColor="@color/whiteColors"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_PointNoKamar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/noKamar"
-                android:textColor="@color/whiteMuh3" />
+                android:layout_height="25dp"
+                android:text="@string/Tanggal"
+                android:textColor="@color/whiteColors" />
 
         </LinearLayout>
 
-
     </android.support.constraint.ConstraintLayout>
-
 </RelativeLayout>
