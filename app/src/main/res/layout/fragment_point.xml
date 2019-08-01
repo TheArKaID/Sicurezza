@@ -5,11 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PointFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -70,30 +74,16 @@
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.Toolbar>
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="670dp"
-            android:background="@color/whiteColors">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/poin_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="670dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_point">
-
-            </android.support.v7.widget.RecyclerView>
-
-
-
-        </android.support.constraint.ConstraintLayout>
-
-
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/poin_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_point">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
 </FrameLayout>
