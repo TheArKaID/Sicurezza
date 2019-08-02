@@ -10,17 +10,17 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_poin_image"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_person_black_24dp"
-        app:civ_circle_background_color="@color/whiteMuh3"
+        app:civ_circle_background_color="@color/basicApps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -43,8 +43,9 @@
             android:layout_height="wrap_content"
             android:maxLength="18"
             android:text="@string/resident"
-            android:textColor="@color/whiteMuh3"
-            android:textSize="24sp" />
+            android:textColor="@color/basicApps"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/noKamar"
-                android:textColor="@color/whiteMuh3" />
+                android:textColor="@color/basicApps" />
 
             <TextView
                 android:id="@+id/tv_pointPoin"
@@ -66,7 +67,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_weight="0.5"
                 android:gravity="end"
-                android:textColor="@color/whiteMuh3"
+                android:textColor="@color/basicApps"
                 android:textSize="15sp"
                 tools:text="50" />
         </LinearLayout>
@@ -74,14 +75,16 @@
     </LinearLayout>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_width="300dp"
+        android:layout_height="0.3dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:background="@android:color/black"
+        android:background="#444444"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

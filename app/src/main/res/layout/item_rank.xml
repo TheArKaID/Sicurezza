@@ -11,16 +11,14 @@
     <de.hdodenhof.circleimageview.CircleImageView
 
         android:id="@+id/profile_image"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_person_black_24dp"
-        app:civ_border_color="@color/whiteColors"
-        app:civ_border_width="4dp"
-        app:civ_circle_background_color="@color/whiteMuh3"
+        app:civ_circle_background_color="@color/basicApps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,18 +43,32 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="@string/resident"
-            android:textColor="@color/whiteMuh3"
-            android:textSize="24sp" />
+            android:textColor="@color/basicApps"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_RankResident"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/usroh"
-            android:textColor="@color/whiteMuh3"
+            android:textColor="@color/basicApps"
             tools:layout_editor_absoluteX="76dp"
             tools:layout_editor_absoluteY="38dp" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="0.3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#444444"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

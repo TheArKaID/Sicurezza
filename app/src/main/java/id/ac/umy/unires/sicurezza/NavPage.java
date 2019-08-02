@@ -47,7 +47,7 @@ public class NavPage extends AppCompatActivity {
         rankFragment = new RankFragment();
         pointFragment = new PointFragment();
 
-        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
+        mMainNav.setItemBackgroundResource(R.color.basicApps);
         setFragment(tankkoFragment, "Teng-Ko");
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

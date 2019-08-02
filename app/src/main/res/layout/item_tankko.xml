@@ -18,7 +18,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/texttankko"
-        android:textColor="@color/whiteMuh3"
+        android:textColor="@color/basicApps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_Point"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +35,23 @@
             android:ems="10"
             tools:text="@string/number"
             android:textAlignment="center"
-            android:textColor="@color/whiteMuh3"
+            android:textColor="@color/basicApps"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.522"
             app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_marginTop="4dp"
+        android:background="#444444"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
