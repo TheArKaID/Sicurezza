@@ -32,7 +32,7 @@ public class NavPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_page);
         Objects.requireNonNull(getSupportActionBar()).hide();
-
+        hideSystemUI();
         mMainFrame = findViewById(R.id.main_frame);
         mMainNav = findViewById(R.id.bottom_nav);
         ImageView logout = findViewById(R.id.iv_logout);
@@ -113,6 +113,24 @@ public class NavPage extends AppCompatActivity {
         fragmentTransaction.commit();
 
 
+    }
+
+    private void hideSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        hideSystemUI();
     }
 }
 
