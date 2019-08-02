@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class Resident extends AppCompatActivity {
 
     ProgressDialog progress;
     String idresident, namaresident;
+    ImageView ivOk;
     ArrayList<DetailPoinModel> detailPoinModels;
     RecyclerView recyclerView;
 
@@ -49,6 +51,8 @@ public class Resident extends AppCompatActivity {
 
         TextView namaResident = findViewById(R.id.tv_DetailNamaReident);
         TextView idResident = findViewById(R.id.tv_DetailIDResident);
+        ivOk = findViewById(R.id.iv_okay);
+
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
         namaresident = Objects.requireNonNull(getIntent().getExtras()).getString("namaresident");
 
@@ -77,24 +81,33 @@ public class Resident extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            for(int i = 0; i < jsonArray.length(); i++){
-                                DetailPoinModel model = new DetailPoinModel();
-                                String object = jsonArray.getString(i);
-                                JSONObject jsonObject = new JSONObject(object);
-                                model.setPenjelasan(jsonObject.getString("penjelasan"));
-                                model.setTanggal(jsonObject.getString("tanggalpoin"));
-                                model.setPoin(jsonObject.getString("poin"));
-                                model.setKeterangan(jsonObject.getString("keterangan"));
-                                detailPoinModels.add(model);
+                        if(response.equals("null")){
+                            if((System.currentTimeMillis()%2)==0){
+                                ivOk.setImageResource(R.drawable.ic_custom_ok);
+                            } else{
+                                ivOk.setImageResource(R.drawable.ic_custom_ok_white);
                             }
+                            ivOk.setVisibility(View.VISIBLE);
+                        } else{
+                            try {
+                                JSONArray jsonArray = new JSONArray(response);
+                                for(int i = 0; i < jsonArray.length(); i++){
+                                    DetailPoinModel model = new DetailPoinModel();
+                                    String object = jsonArray.getString(i);
+                                    JSONObject jsonObject = new JSONObject(object);
+                                    model.setPenjelasan(jsonObject.getString("penjelasan"));
+                                    model.setTanggal(jsonObject.getString("tanggalpoin"));
+                                    model.setPoin(jsonObject.getString("poin"));
+                                    model.setKeterangan(jsonObject.getString("keterangan"));
+                                    detailPoinModels.add(model);
+                                }
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            }
+                            adapter();
                         }
-                        adapter();
                         progress.dismiss();
                     }
                 },
