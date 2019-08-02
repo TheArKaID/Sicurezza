@@ -1,11 +1,13 @@
 package id.ac.umy.unires.sicurezza;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +60,16 @@ public class Resident extends AppCompatActivity {
         idResident.setText(idresident);
 
         loadDataResident(idresident);
+
+        ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Resident.this)
+                        .setMessage("Penjelasan : "+detailPoinModels.get(position).getPenjelasan()+"\nKeterangan : "+detailPoinModels.get(position).getKeterangan())
+                        .setNeutralButton("Ok", null);
+                builder.show();
+            }
+        });
     }
 
     private void loadDataResident(final String idresident) {
@@ -74,6 +86,7 @@ public class Resident extends AppCompatActivity {
                                 model.setPenjelasan(jsonObject.getString("penjelasan"));
                                 model.setTanggal(jsonObject.getString("tanggalpoin"));
                                 model.setPoin(jsonObject.getString("poin"));
+                                model.setKeterangan(jsonObject.getString("keterangan"));
                                 detailPoinModels.add(model);
                             }
 

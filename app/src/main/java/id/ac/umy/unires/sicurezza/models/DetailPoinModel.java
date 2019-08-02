@@ -2,15 +2,28 @@ package id.ac.umy.unires.sicurezza.models;
 
 public class DetailPoinModel {
 
-    private String penjelasan, tanggal, poin;
+    private String penjelasan;
+    private String tanggal;
+    private String poin;
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+
+    private String keterangan;
 
     public DetailPoinModel() {
     }
 
-    public DetailPoinModel(String penjelasan, String tanggal, String poin) {
+    public DetailPoinModel(String penjelasan, String tanggal, String poin, String keterangan) {
         this.penjelasan = penjelasan;
         this.tanggal = tanggal;
         this.poin = poin;
+        this.keterangan = keterangan;
     }
 
     public String getPenjelasan() {
