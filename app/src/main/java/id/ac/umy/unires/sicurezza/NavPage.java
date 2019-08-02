@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import java.util.Objects;
 
@@ -34,7 +35,7 @@ public class NavPage extends AppCompatActivity {
         pointFragment = new PointFragment();
 
         mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
-        setFragment(tankkoFragment);
+        setFragment(tankkoFragment, "Teng-Ko");
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -42,15 +43,15 @@ public class NavPage extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
 
                     case R.id.navtankko :
-                        setFragment(tankkoFragment);
+                        setFragment(tankkoFragment, "Teng-Ko");
                         return true;
 
                     case R.id.navrank :
-                        setFragment(rankFragment);
+                        setFragment(rankFragment, "The Most Valuable");
                         return true;
 
                     case R.id.navpoint :
-                        setFragment(pointFragment);
+                        setFragment(pointFragment, "Tambah Poin");
                         return  true;
 
                         default:
@@ -61,8 +62,9 @@ public class NavPage extends AppCompatActivity {
         });
     }
 
-    private void setFragment(Fragment fragment) {
-
+    private void setFragment(Fragment fragment, String title) {
+        TextView navTitle = findViewById(R.id.tv_TitleNav);
+        navTitle.setText(title);
         FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
 
         fragmentTransaction.replace(R.id.main_frame, fragment);
