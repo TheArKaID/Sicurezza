@@ -2,7 +2,18 @@ package id.ac.umy.unires.sicurezza.models;
 
 public class TengKoModel {
 
-    String namapelanggaran, point;
+    private String namapelanggaran;
+    private String point;
+
+    public String getIdpelanggaran() {
+        return idpelanggaran;
+    }
+
+    public void setIdpelanggaran(String idpelanggaran) {
+        this.idpelanggaran = idpelanggaran;
+    }
+
+    private String idpelanggaran;
 
     public TengKoModel(String namapelanggaran, String point) {
         this.namapelanggaran = namapelanggaran;
