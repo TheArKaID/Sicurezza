@@ -2,6 +2,9 @@ package id.ac.umy.unires.sicurezza;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +43,7 @@ public class Resident extends AppCompatActivity {
     ImageView ivOk;
     ArrayList<DetailPoinModel> detailPoinModels;
     RecyclerView recyclerView;
+    final int ADDPOINT = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,7 @@ public class Resident extends AppCompatActivity {
         TextView namaResident = findViewById(R.id.tv_DetailNamaReident);
         TextView idResident = findViewById(R.id.tv_DetailIDResident);
         ivOk = findViewById(R.id.iv_okay);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
         namaresident = Objects.requireNonNull(getIntent().getExtras()).getString("namaresident");
@@ -64,6 +69,15 @@ public class Resident extends AppCompatActivity {
         idResident.setText(idresident);
 
         loadDataResident(idresident);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addPoinIntent = new Intent(Resident.this, AddPoint.class);
+                addPoinIntent.putExtra("idresident", idresident);
+                startActivityForResult(addPoinIntent, ADDPOINT);
+            }
+        });
 
         ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
             @Override
@@ -154,12 +168,16 @@ public class Resident extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         hideSystemUI();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
