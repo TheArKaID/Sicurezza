@@ -76,9 +76,9 @@ public class NavPage extends AppCompatActivity {
     }
 
     private void Logout() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this)
                 .setTitle("Logout")
-                .setMessage("Anda akan keluar ?")
+                .setMessage("Anda akan logout ?\nSetelah ini anda harus masuk kembali untuk mengakses Sicurezza.")
                 .setPositiveButton("Ya",
                         new DialogInterface.OnClickListener() {
                             @Override
@@ -94,13 +94,7 @@ public class NavPage extends AppCompatActivity {
                                 startActivity(logoutIntent);
                             }
                         })
-                .setNeutralButton("Batal",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
+                .setNeutralButton("Batal",null);
         builder.show();
     }
 
@@ -111,8 +105,6 @@ public class NavPage extends AppCompatActivity {
 
         fragmentTransaction.replace(R.id.main_frame, fragment);
         fragmentTransaction.commit();
-
-
     }
 
     private void hideSystemUI() {
@@ -124,13 +116,33 @@ public class NavPage extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_FULLSCREEN);
-
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         hideSystemUI();
+    }
+
+    @Override
+    public void onBackPressed() {
+        keluar();
+    }
+
+    private void keluar() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this)
+                .setTitle("Keluar")
+                .setMessage("Anda akan keluar tanpa logout ?")
+                .setPositiveButton("Ya",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finishAndRemoveTask();
+                                System.exit(0);
+                            }
+                        })
+                .setNeutralButton("Batal",null);
+        builder.show();
     }
 }
 
