@@ -2,6 +2,7 @@ package id.ac.umy.unires.sicurezza;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import id.ac.umy.unires.sicurezza.adapters.TengKoAdapter;
 import id.ac.umy.unires.sicurezza.models.PoinModel;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
+import static id.ac.umy.unires.sicurezza.Resident.ADDPOINT;
 import static id.ac.umy.unires.sicurezza.TankkoFragment.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekTengKoURL;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.TambahPoinURL;
@@ -149,9 +151,9 @@ public class AddPoint extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
+                progress.dismiss();
             }
         });
-
 
         builder.show();
     }
@@ -161,13 +163,19 @@ public class AddPoint extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        if(response.equals("sukses")){
+                            Toast.makeText(AddPoint.this, "Sukses", Toast.LENGTH_SHORT).show();
+                            Intent backIntent = new Intent(AddPoint.this, Resident.class);
+                            setResult(ADDPOINT, backIntent);
+                            finish();
+                        } else
+                            Toast.makeText(AddPoint.this, response!=null?response:"gagal", Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(AddPoint.this, "Gagal: "+(error.getMessage()!=null?error.getMessage():"Gagal"), Toast.LENGTH_SHORT).show();
                     }
                 }){
             @Override

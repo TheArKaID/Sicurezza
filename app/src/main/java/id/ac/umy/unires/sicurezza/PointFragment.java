@@ -42,6 +42,7 @@ public class PointFragment extends Fragment {
     ProgressDialog progress;
     ArrayList<PoinModel> poinModels;
     RecyclerView recyclerView;
+    public static int CEKDETAIL = 100;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_point, container, false);
@@ -65,10 +66,11 @@ public class PointFragment extends Fragment {
         Intent move = new Intent(getContext(), Resident.class);
         move.putExtra("idresident", id);
         move.putExtra("namaresident", nama);
-        startActivity(move);
+        startActivityForResult(move, CEKDETAIL);
     }
 
     private void loadResident() {
+        poinModels = new ArrayList<>();
         StringRequest request = new StringRequest(Request.Method.POST, CekResidentURL,
                 new Response.Listener<String>() {
                     @Override
@@ -127,4 +129,12 @@ public class PointFragment extends Fragment {
         progress.show();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==1){
+            loadingBar();
+            loadResident();
+        }
+    }
 }
