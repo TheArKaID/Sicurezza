@@ -142,7 +142,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/whiteColors"
         android:src="@drawable/ic_add_black_24dp"
+        android:tint="@color/colorMuh1"
+        app:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/rv_detailpoin"
         app:layout_constraintEnd_toEndOf="@+id/rv_detailpoin" />
 
