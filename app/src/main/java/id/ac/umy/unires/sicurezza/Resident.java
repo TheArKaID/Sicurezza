@@ -43,7 +43,8 @@ public class Resident extends AppCompatActivity {
     ImageView ivOk;
     ArrayList<DetailPoinModel> detailPoinModels;
     RecyclerView recyclerView;
-    final int ADDPOINT = 99;
+    public static final int ADDPOINT = 99;
+    public static int THISRESULT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class Resident extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
         loadingBar();
-
+        THISRESULT = 0;
         TextView namaResident = findViewById(R.id.tv_DetailNamaReident);
         TextView idResident = findViewById(R.id.tv_DetailIDResident);
         ivOk = findViewById(R.id.iv_okay);
@@ -120,6 +121,7 @@ public class Resident extends AppCompatActivity {
                                 e.printStackTrace();
                                 Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                             }
+                            ivOk.setVisibility(View.GONE);
                             adapter();
                         }
                         progress.dismiss();
@@ -179,5 +181,16 @@ public class Resident extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==ADDPOINT){
+            THISRESULT = 1;
+            loadDataResident(idresident);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(Resident.this, NavPage.class);
+        setResult(THISRESULT, backIntent);
+        finish();
     }
 }
