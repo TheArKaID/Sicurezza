@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_person_black_24dp"
+        android:src="@drawable/ic_person_white_24dp"
         app:civ_circle_background_color="@color/basicApps"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
