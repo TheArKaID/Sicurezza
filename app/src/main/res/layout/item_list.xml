@@ -28,7 +28,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="301dp"
+            android:layout_width="0dp"
             android:layout_height="64dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
@@ -42,11 +42,13 @@
 
             <TextView
                 android:id="@+id/tv_DetailPoinpenjelasan"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/Pelanggarn"
                 android:textColor="@color/whiteColors"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:maxLines="1"/>
 
             <TextView
                 android:id="@+id/tv_DetailPointanggal"
