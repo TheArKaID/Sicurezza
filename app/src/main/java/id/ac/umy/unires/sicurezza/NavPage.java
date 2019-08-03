@@ -60,7 +60,7 @@ public class NavPage extends AppCompatActivity {
                         return true;
 
                     case R.id.navrank :
-                        setFragment(rankFragment, "The Most Valuable");
+                        setFragment(rankFragment, "Ranking");
                         return true;
 
                     case R.id.navpoint :
