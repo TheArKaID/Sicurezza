@@ -176,7 +176,7 @@ public class AddPoint extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(AddPoint.this, "Gagal: "+(error.getMessage()!=null?error.getMessage():"Gagal"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPoint.this, "Gagal: "+(error.getMessage()!=null?error.getMessage():"Fail"), Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
                 }){

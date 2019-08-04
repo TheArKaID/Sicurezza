@@ -137,6 +137,7 @@ public class Resident extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Resident.this, "Gagal, " + (error.getMessage()!=null?error.getMessage():"Error"), Toast.LENGTH_SHORT).show();
                         Log.d("ResidentDetailError", error.getMessage()!=null?error.getMessage():"Error");
                         progress.dismiss();
                     }

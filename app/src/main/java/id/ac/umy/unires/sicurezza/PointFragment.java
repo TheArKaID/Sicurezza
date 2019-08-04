@@ -105,7 +105,8 @@ public class PointFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(getContext(), "Gagal"+ ((error.getMessage()!=null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        progress.dismiss();
                     }
                 }){
             @Override
