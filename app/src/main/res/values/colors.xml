@@ -7,6 +7,7 @@
     <color name="whiteColors">#FFFFFF</color>
     <color name="blueColors">#0253B3</color>
     <color name="whiteTransparan">#80FFFFFF</color>
+    <color name="fullTransparan">#00FFFFFF</color>
 
     //warna muhammadiyah
     <color name="colorMuh1">#004028</color>
