@@ -23,9 +23,11 @@ public class NavPage extends AppCompatActivity {
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
 
-    private TankkoFragment tankkoFragment;
-    private RankFragment rankFragment;
-    private PointFragment pointFragment;
+    private Fragment tankkoFragment;
+    private Fragment rankFragment;
+    private Fragment pointFragment;
+
+    private TextView navTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,11 @@ public class NavPage extends AppCompatActivity {
         setContentView(R.layout.activity_nav_page);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
+
         mMainFrame = findViewById(R.id.main_frame);
         mMainNav = findViewById(R.id.bottom_nav);
+        navTitle = findViewById(R.id.tv_TitleNav);
+
         ImageView logout = findViewById(R.id.iv_logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +52,13 @@ public class NavPage extends AppCompatActivity {
         rankFragment = new RankFragment();
         pointFragment = new PointFragment();
 
-        mMainNav.setItemBackgroundResource(R.color.basicApps);
-        setFragment(tankkoFragment, "Teng-Ko");
+        if(savedInstanceState==null)
+            setFragment(tankkoFragment, "Teng-Ko");
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-
                     case R.id.navtankko :
                         setFragment(tankkoFragment, "Teng-Ko");
                         return true;
@@ -69,7 +73,6 @@ public class NavPage extends AppCompatActivity {
 
                         default:
                             return false;
-
                 }
             }
         });
@@ -99,7 +102,6 @@ public class NavPage extends AppCompatActivity {
     }
 
     private void setFragment(Fragment fragment, String title) {
-        TextView navTitle = findViewById(R.id.tv_TitleNav);
         navTitle.setText(title);
         FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
 
@@ -143,6 +145,35 @@ public class NavPage extends AppCompatActivity {
                         })
                 .setNeutralButton("Batal",null);
         builder.show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(mMainNav.getSelectedItemId()==R.id.navtankko)
+            getSupportFragmentManager().putFragment(outState, "tengko", tankkoFragment);
+        else if(mMainNav.getSelectedItemId()==R.id.navrank)
+            getSupportFragmentManager().putFragment(outState, "rank", rankFragment);
+        else if(mMainNav.getSelectedItemId()==R.id.navpoint)
+            getSupportFragmentManager().putFragment(outState, "point", pointFragment);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(mMainNav.getSelectedItemId()==R.id.navtankko) {
+            tankkoFragment = getSupportFragmentManager().getFragment(savedInstanceState, "tengko");
+            setFragment(tankkoFragment, "Teng-Ko");
+        }
+        else if(mMainNav.getSelectedItemId()==R.id.navrank) {
+            rankFragment = getSupportFragmentManager().getFragment(savedInstanceState, "rank");
+            setFragment(rankFragment, "The Most Valuable");
+        }
+        else if(mMainNav.getSelectedItemId()==R.id.navpoint) {
+            pointFragment = getSupportFragmentManager().getFragment(savedInstanceState, "point");
+            setFragment(pointFragment, "Tambah Data");
+        }
     }
 }
 
