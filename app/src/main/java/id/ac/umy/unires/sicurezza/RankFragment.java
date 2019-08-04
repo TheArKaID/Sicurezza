@@ -9,9 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -26,9 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import id.ac.umy.unires.sicurezza.adapters.PoinAdapter;
 import id.ac.umy.unires.sicurezza.adapters.RankAdapter;
-import id.ac.umy.unires.sicurezza.models.PoinModel;
 import id.ac.umy.unires.sicurezza.models.RankModel;
 
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekRankURL;
@@ -39,7 +37,8 @@ public class RankFragment extends Fragment {
     ArrayList<RankModel> rankModels;
     RecyclerView recyclerView;
 
-    public RankFragment() {}
+    public RankFragment() {
+    }
 
 
     @Override
@@ -49,10 +48,10 @@ public class RankFragment extends Fragment {
         recyclerView = view.findViewById(R.id.fragment_rank);
         recyclerView.setHasFixedSize(true);
 
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             rankModels = savedInstanceState.getParcelableArrayList("rank");
             adapter();
-        } else{
+        } else {
             loadingBar();
             rankModels = new ArrayList<>();
             loadRanked();
@@ -69,7 +68,7 @@ public class RankFragment extends Fragment {
                     public void onResponse(String response) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            for(int i = 0; i < jsonArray.length(); i++){
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 RankModel model = new RankModel();
                                 String object = jsonArray.getString(i);
                                 JSONObject jsonObject = new JSONObject(object);
@@ -81,7 +80,7 @@ public class RankFragment extends Fragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         }
                         adapter();
                         progress.dismiss();
@@ -90,10 +89,10 @@ public class RankFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "Gagal, " + ((error.getMessage()!=null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Gagal, " + ((error.getMessage() != null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
@@ -112,11 +111,14 @@ public class RankFragment extends Fragment {
     }
 
     private void loadingBar() {
-        if(progress==null)
+        if (progress == null)
             progress = new ProgressDialog(getContext());
         progress.setMessage("Memeriksa Data Ranking");
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
+
+        progress.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
         progress.show();
     }
 

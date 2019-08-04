@@ -3,18 +3,18 @@ package id.ac.umy.unires.sicurezza;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -30,9 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import id.ac.umy.unires.sicurezza.adapters.PoinAdapter;
 import id.ac.umy.unires.sicurezza.adapters.TengKoAdapter;
-import id.ac.umy.unires.sicurezza.models.PoinModel;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
 import static id.ac.umy.unires.sicurezza.Resident.ADDPOINT;
@@ -58,10 +56,10 @@ public class AddPoint extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_addpoin);
         recyclerView.setHasFixedSize(true);
 
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             tengKoModels = savedInstanceState.getParcelableArrayList("addpoint");
             adapter();
-        } else{
+        } else {
             loadingBar();
             tengKoModels = new ArrayList<>();
             loadTengKo();
@@ -85,11 +83,14 @@ public class AddPoint extends AppCompatActivity {
     }
 
     private void loadingBar() {
-        if(progress==null)
+        if (progress == null)
             progress = new ProgressDialog(this);
         progress.setMessage("Menambahkan Poin");
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
+
+        progress.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
         progress.show();
     }
 
@@ -100,7 +101,7 @@ public class AddPoint extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            for(int i = 0; i < jsonArray.length(); i++){
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 TengKoModel model = new TengKoModel();
                                 String object = jsonArray.getString(i);
                                 JSONObject jsonObject = new JSONObject(object);
@@ -112,7 +113,7 @@ public class AddPoint extends AppCompatActivity {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(AddPoint.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddPoint.this, "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         }
                         adapter();
                         progress.dismiss();
@@ -121,10 +122,10 @@ public class AddPoint extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(AddPoint.this, "Gagal, " + ((error.getMessage()!=null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPoint.this, "Gagal, " + ((error.getMessage() != null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
@@ -135,10 +136,11 @@ public class AddPoint extends AppCompatActivity {
 
         Volley.newRequestQueue(this).add(request);
     }
+
     private void showConfirmAddPoin(final String idpelanggaran, String point) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Anda akan menambahkan Poin");
-        builder.setMessage("Untuk Resident dengan ID "+idresident + " dengan Poin "+point+"\nTambahkan penjelasan");
+        builder.setMessage("Untuk Resident dengan ID " + idresident + " dengan Poin " + point + "\nTambahkan penjelasan");
 
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.confirm_add_poin, (ViewGroup) getWindow().getDecorView(), false);
 
@@ -170,13 +172,13 @@ public class AddPoint extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.equals("sukses")){
+                        if (response.equals("sukses")) {
                             Toast.makeText(AddPoint.this, "Sukses", Toast.LENGTH_SHORT).show();
                             Intent backIntent = new Intent(AddPoint.this, Resident.class);
                             setResult(ADDPOINT, backIntent);
                             finish();
                         } else
-                            Toast.makeText(AddPoint.this, response!=null?response:"gagal", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddPoint.this, response != null ? response : "gagal", Toast.LENGTH_SHORT).show();
 
                         progress.dismiss();
                     }
@@ -184,10 +186,10 @@ public class AddPoint extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(AddPoint.this, "Gagal: "+(error.getMessage()!=null?error.getMessage():"Fail"), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPoint.this, "Gagal: " + (error.getMessage() != null ? error.getMessage() : "Fail"), Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();

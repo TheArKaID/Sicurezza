@@ -3,19 +3,19 @@ package id.ac.umy.unires.sicurezza;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -38,13 +38,13 @@ import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekDetailResidentURL;
 
 public class Resident extends AppCompatActivity {
 
+    public static final int ADDPOINT = 99;
+    public static int THISRESULT;
     ProgressDialog progress;
     String idresident, namaresident;
     ImageView ivOk;
     ArrayList<DetailPoinModel> detailPoinModels;
     RecyclerView recyclerView;
-    public static final int ADDPOINT = 99;
-    public static int THISRESULT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +63,10 @@ public class Resident extends AppCompatActivity {
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
         namaresident = Objects.requireNonNull(getIntent().getExtras()).getString("namaresident");
 
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             detailPoinModels = savedInstanceState.getParcelableArrayList("detail");
             adapter();
-        }else{
+        } else {
             detailPoinModels = new ArrayList<>();
             loadingBar();
             loadDataResident(idresident);
@@ -91,8 +91,9 @@ public class Resident extends AppCompatActivity {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Resident.this)
-                        .setMessage("Penjelasan : "+detailPoinModels.get(position).getPenjelasan()+"\nKeterangan : "+detailPoinModels.get(position).getKeterangan())
+                        .setMessage("Penjelasan : " + detailPoinModels.get(position).getPenjelasan() + "\nKeterangan : " + detailPoinModels.get(position).getKeterangan())
                         .setNeutralButton("Ok", null);
+
                 builder.show();
             }
         });
@@ -103,17 +104,17 @@ public class Resident extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.equals("null")){
-                            if((System.currentTimeMillis()%2)==0){
+                        if (response.equals("null")) {
+                            if ((System.currentTimeMillis() % 2) == 0) {
                                 ivOk.setImageResource(R.drawable.ic_custom_ok);
-                            } else{
+                            } else {
                                 ivOk.setImageResource(R.drawable.ic_custom_ok_white);
                             }
                             ivOk.setVisibility(View.VISIBLE);
-                        } else{
+                        } else {
                             try {
                                 JSONArray jsonArray = new JSONArray(response);
-                                for(int i = 0; i < jsonArray.length(); i++){
+                                for (int i = 0; i < jsonArray.length(); i++) {
                                     DetailPoinModel model = new DetailPoinModel();
                                     String object = jsonArray.getString(i);
                                     JSONObject jsonObject = new JSONObject(object);
@@ -126,7 +127,7 @@ public class Resident extends AppCompatActivity {
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Resident.this, "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                             }
                             ivOk.setVisibility(View.GONE);
                             adapter();
@@ -137,11 +138,11 @@ public class Resident extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Resident.this, "Gagal, " + (error.getMessage()!=null?error.getMessage():"Error"), Toast.LENGTH_SHORT).show();
-                        Log.d("ResidentDetailError", error.getMessage()!=null?error.getMessage():"Error");
+                        Toast.makeText(Resident.this, "Gagal, " + (error.getMessage() != null ? error.getMessage() : "Error"), Toast.LENGTH_SHORT).show();
+                        Log.d("ResidentDetailError", error.getMessage() != null ? error.getMessage() : "Error");
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
@@ -161,11 +162,14 @@ public class Resident extends AppCompatActivity {
     }
 
     private void loadingBar() {
-        if(progress==null)
+        if (progress == null)
             progress = new ProgressDialog(this);
         progress.setMessage("Memeriksa Data Resident");
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
+
+        progress.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
         progress.show();
     }
 
@@ -189,7 +193,7 @@ public class Resident extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==ADDPOINT){
+        if (resultCode == ADDPOINT) {
             THISRESULT = 1;
             loadDataResident(idresident);
         }

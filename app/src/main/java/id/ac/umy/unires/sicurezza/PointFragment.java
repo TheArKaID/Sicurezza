@@ -11,9 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -36,13 +36,13 @@ import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekResidentURL;
 public class PointFragment extends Fragment {
 
 
-    public PointFragment() {}
-
-
+    public static int CEKDETAIL = 100;
     ProgressDialog progress;
     ArrayList<PoinModel> poinModels;
     RecyclerView recyclerView;
-    public static int CEKDETAIL = 100;
+    public PointFragment() {
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_point, container, false);
@@ -50,10 +50,10 @@ public class PointFragment extends Fragment {
         recyclerView = view.findViewById(R.id.poin_recycler);
         recyclerView.setHasFixedSize(true);
 
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             poinModels = savedInstanceState.getParcelableArrayList("point");
             adapter();
-        } else{
+        } else {
             loadingBar();
             poinModels = new ArrayList<>();
             loadResident();
@@ -83,7 +83,7 @@ public class PointFragment extends Fragment {
                     public void onResponse(String response) {
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            for(int i = 0; i < jsonArray.length(); i++){
+                            for (int i = 0; i < jsonArray.length(); i++) {
                                 PoinModel model = new PoinModel();
                                 String object = jsonArray.getString(i);
                                 JSONObject jsonObject = new JSONObject(object);
@@ -96,7 +96,7 @@ public class PointFragment extends Fragment {
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage()!=null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         }
                         adapter();
                         progress.dismiss();
@@ -105,10 +105,10 @@ public class PointFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), "Gagal"+ ((error.getMessage()!=null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Gagal" + ((error.getMessage() != null) ? error.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
@@ -128,18 +128,21 @@ public class PointFragment extends Fragment {
 
 
     private void loadingBar() {
-        if(progress==null)
+        if (progress == null)
             progress = new ProgressDialog(getContext());
         progress.setMessage("Memeriksa Data Resident");
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
+
+        progress.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
         progress.show();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==1){
+        if (resultCode == 1) {
             loadingBar();
             loadResident();
         }

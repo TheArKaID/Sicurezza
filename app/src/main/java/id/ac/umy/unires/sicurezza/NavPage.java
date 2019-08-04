@@ -3,15 +3,16 @@ package id.ac.umy.unires.sicurezza;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,34 +53,35 @@ public class NavPage extends AppCompatActivity {
         rankFragment = new RankFragment();
         pointFragment = new PointFragment();
 
-        if(savedInstanceState==null)
+        if (savedInstanceState == null)
             setFragment(tankkoFragment, "Teng-Ko");
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.navtankko :
+                    case R.id.navtankko:
                         setFragment(tankkoFragment, "Teng-Ko");
                         return true;
 
-                    case R.id.navrank :
+                    case R.id.navrank:
                         setFragment(rankFragment, "Ranking");
                         return true;
 
-                    case R.id.navpoint :
+                    case R.id.navpoint:
                         setFragment(pointFragment, "Tambah Poin");
-                        return  true;
+                        return true;
 
-                        default:
-                            return false;
+                    default:
+                        return false;
                 }
             }
         });
     }
 
     private void Logout() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this);
+        AlertDialog confirmLogout = builder
                 .setTitle("Logout")
                 .setMessage("Anda akan logout ?\nSetelah ini anda harus masuk kembali untuk mengakses Sicurezza.")
                 .setPositiveButton("Ya",
@@ -93,17 +95,27 @@ public class NavPage extends AppCompatActivity {
                                 prefEdit.apply();
 
                                 Intent logoutIntent = new Intent(NavPage.this, PageSignIn.class);
-                                logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(logoutIntent);
                             }
                         })
-                .setNeutralButton("Batal",null);
-        builder.show();
+                .setNeutralButton("Batal", null).create();
+        confirmLogout.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
+        confirmLogout.show();
+        int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        confirmLogout.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        confirmLogout.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
     }
 
     private void setFragment(Fragment fragment, String title) {
         navTitle.setText(title);
-        FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         fragmentTransaction.replace(R.id.main_frame, fragment);
         fragmentTransaction.commit();
@@ -132,7 +144,8 @@ public class NavPage extends AppCompatActivity {
     }
 
     private void keluar() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(NavPage.this);
+        AlertDialog confirmKeluar = builder
                 .setTitle("Keluar")
                 .setMessage("Anda akan keluar tanpa logout ?")
                 .setPositiveButton("Ya",
@@ -143,18 +156,28 @@ public class NavPage extends AppCompatActivity {
                                 System.exit(0);
                             }
                         })
-                .setNeutralButton("Batal",null);
-        builder.show();
+                .setNeutralButton("Batal", null).create();
+        confirmKeluar.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+
+        confirmKeluar.show();
+        int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        confirmKeluar.getWindow().getDecorView().setSystemUiVisibility(uiOptions);
+        confirmKeluar.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if(mMainNav.getSelectedItemId()==R.id.navtankko)
+        if (mMainNav.getSelectedItemId() == R.id.navtankko)
             getSupportFragmentManager().putFragment(outState, "tengko", tankkoFragment);
-        else if(mMainNav.getSelectedItemId()==R.id.navrank)
+        else if (mMainNav.getSelectedItemId() == R.id.navrank)
             getSupportFragmentManager().putFragment(outState, "rank", rankFragment);
-        else if(mMainNav.getSelectedItemId()==R.id.navpoint)
+        else if (mMainNav.getSelectedItemId() == R.id.navpoint)
             getSupportFragmentManager().putFragment(outState, "point", pointFragment);
     }
 
@@ -162,15 +185,13 @@ public class NavPage extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        if(mMainNav.getSelectedItemId()==R.id.navtankko) {
+        if (mMainNav.getSelectedItemId() == R.id.navtankko) {
             tankkoFragment = getSupportFragmentManager().getFragment(savedInstanceState, "tengko");
             setFragment(tankkoFragment, "Teng-Ko");
-        }
-        else if(mMainNav.getSelectedItemId()==R.id.navrank) {
+        } else if (mMainNav.getSelectedItemId() == R.id.navrank) {
             rankFragment = getSupportFragmentManager().getFragment(savedInstanceState, "rank");
             setFragment(rankFragment, "The Most Valuable");
-        }
-        else if(mMainNav.getSelectedItemId()==R.id.navpoint) {
+        } else if (mMainNav.getSelectedItemId() == R.id.navpoint) {
             pointFragment = getSupportFragmentManager().getFragment(savedInstanceState, "point");
             setFragment(pointFragment, "Tambah Data");
         }
