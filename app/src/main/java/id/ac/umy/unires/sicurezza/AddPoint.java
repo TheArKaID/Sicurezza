@@ -144,7 +144,6 @@ public class AddPoint extends AppCompatActivity {
                 loadingBar();
                 keterangan = input.getText().toString();
                 addPoin(idresident, idpelanggaran, keterangan);
-                progress.dismiss();
             }
         });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -170,12 +169,15 @@ public class AddPoint extends AppCompatActivity {
                             finish();
                         } else
                             Toast.makeText(AddPoint.this, response!=null?response:"gagal", Toast.LENGTH_SHORT).show();
+
+                        progress.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(AddPoint.this, "Gagal: "+(error.getMessage()!=null?error.getMessage():"Gagal"), Toast.LENGTH_SHORT).show();
+                        progress.dismiss();
                     }
                 }){
             @Override
