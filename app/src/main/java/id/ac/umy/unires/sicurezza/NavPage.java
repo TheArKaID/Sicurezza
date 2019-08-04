@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+import static id.ac.umy.unires.sicurezza.TankkoFragment.idsenior;
+
 public class NavPage extends AppCompatActivity {
 
     private BottomNavigationView mMainNav;
@@ -42,10 +44,17 @@ public class NavPage extends AppCompatActivity {
         navTitle = findViewById(R.id.tv_TitleNav);
 
         ImageView logout = findViewById(R.id.iv_logout);
+        ImageView setting = findViewById(R.id.iv_setting);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Logout();
+            }
+        });
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Setting(idsenior);
             }
         });
 
@@ -77,6 +86,12 @@ public class NavPage extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void Setting(String idsenior) {
+        Intent settingIntent = new Intent(this, ProfileActivity.class);
+        settingIntent.putExtra("idsenior", idsenior);
+        startActivity(settingIntent);
     }
 
     private void Logout() {
