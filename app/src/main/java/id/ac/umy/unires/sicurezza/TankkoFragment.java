@@ -45,11 +45,18 @@ public class TankkoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tankko, container, false);
-        loadingBar();
-        tengKoModels = new ArrayList<>();
+
         recyclerView = view.findViewById(R.id.tankko_recycler);
         recyclerView.setHasFixedSize(true);
-        loadTengKo();
+
+        if(savedInstanceState!=null){
+            tengKoModels = savedInstanceState.getParcelableArrayList("tengko");
+            adapter();
+        } else{
+            loadingBar();
+            tengKoModels = new ArrayList<>();
+            loadTengKo();
+        }
 
         return view;
     }
@@ -110,6 +117,12 @@ public class TankkoFragment extends Fragment {
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
         progress.show();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("tengko", tengKoModels);
     }
 
 }

@@ -1,9 +1,30 @@
 package id.ac.umy.unires.sicurezza.models;
 
-public class TengKoModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class TengKoModel implements Parcelable {
 
     private String namapelanggaran;
     private String point;
+
+    protected TengKoModel(Parcel in) {
+        namapelanggaran = in.readString();
+        point = in.readString();
+        idpelanggaran = in.readString();
+    }
+
+    public static final Creator<TengKoModel> CREATOR = new Creator<TengKoModel>() {
+        @Override
+        public TengKoModel createFromParcel(Parcel in) {
+            return new TengKoModel(in);
+        }
+
+        @Override
+        public TengKoModel[] newArray(int size) {
+            return new TengKoModel[size];
+        }
+    };
 
     public String getIdpelanggaran() {
         return idpelanggaran;
@@ -38,5 +59,17 @@ public class TengKoModel {
 
     public void setPoint(String point) {
         this.point = point;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(namapelanggaran);
+        dest.writeString(point);
+        dest.writeString(idpelanggaran);
     }
 }
