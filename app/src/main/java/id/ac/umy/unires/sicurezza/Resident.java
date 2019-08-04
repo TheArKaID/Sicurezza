@@ -52,24 +52,31 @@ public class Resident extends AppCompatActivity {
         setContentView(R.layout.activity_resident);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
-        loadingBar();
-        THISRESULT = 0;
+
         TextView namaResident = findViewById(R.id.tv_DetailNamaReident);
         TextView idResident = findViewById(R.id.tv_DetailIDResident);
         ivOk = findViewById(R.id.iv_okay);
         FloatingActionButton fab = findViewById(R.id.fab);
+        recyclerView = findViewById(R.id.rv_detailpoin);
+        recyclerView.setHasFixedSize(true);
 
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
         namaresident = Objects.requireNonNull(getIntent().getExtras()).getString("namaresident");
 
-        detailPoinModels = new ArrayList<>();
-        recyclerView = findViewById(R.id.rv_detailpoin);
-        recyclerView.setHasFixedSize(true);
+        if(savedInstanceState!=null){
+            detailPoinModels = savedInstanceState.getParcelableArrayList("detail");
+            adapter();
+        }else{
+            detailPoinModels = new ArrayList<>();
+            loadingBar();
+            loadDataResident(idresident);
+        }
+
+        THISRESULT = 0;
 
         namaResident.setText(namaresident);
         idResident.setText(idresident);
 
-        loadDataResident(idresident);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,5 +199,11 @@ public class Resident extends AppCompatActivity {
         Intent backIntent = new Intent(Resident.this, NavPage.class);
         setResult(THISRESULT, backIntent);
         finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("detail", detailPoinModels);
     }
 }
