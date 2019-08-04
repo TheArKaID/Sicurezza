@@ -46,11 +46,18 @@ public class RankFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rank, container, false);
 
-        loadingBar();
-        rankModels = new ArrayList<>();
         recyclerView = view.findViewById(R.id.fragment_rank);
         recyclerView.setHasFixedSize(true);
-        loadRanked();
+
+        if(savedInstanceState!=null){
+            rankModels = savedInstanceState.getParcelableArrayList("rank");
+            adapter();
+        } else{
+            loadingBar();
+            rankModels = new ArrayList<>();
+            loadRanked();
+        }
+
 
         return view;
     }
@@ -112,4 +119,9 @@ public class RankFragment extends Fragment {
         progress.show();
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("rank", rankModels);
+    }
 }

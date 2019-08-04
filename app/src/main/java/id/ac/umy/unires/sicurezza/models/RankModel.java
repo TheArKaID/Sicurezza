@@ -1,6 +1,9 @@
 package id.ac.umy.unires.sicurezza.models;
 
-public class RankModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class RankModel implements Parcelable {
 
     private String nama;
     private String poin;
@@ -14,6 +17,24 @@ public class RankModel {
 
     public RankModel() {
     }
+
+    private RankModel(Parcel in) {
+        nama = in.readString();
+        poin = in.readString();
+        usroh = in.readString();
+    }
+
+    public static final Creator<RankModel> CREATOR = new Creator<RankModel>() {
+        @Override
+        public RankModel createFromParcel(Parcel in) {
+            return new RankModel(in);
+        }
+
+        @Override
+        public RankModel[] newArray(int size) {
+            return new RankModel[size];
+        }
+    };
 
     public String getNama() {
         return nama;
@@ -37,5 +58,17 @@ public class RankModel {
 
     public void setUsroh(String usroh) {
         this.usroh = usroh;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nama);
+        dest.writeString(poin);
+        dest.writeString(usroh);
     }
 }
