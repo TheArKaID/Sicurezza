@@ -14,7 +14,8 @@
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/basicApps">
 
             <TextView
                 android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                 android:layout_margin="16dp"
                 android:text="@string/PointTitle"
                 android:textAlignment="center"
-                android:textColor="@color/whiteMuh3"
+                android:textColor="@color/whiteColors"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </android.support.v7.widget.Toolbar>

@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navtankko"
         android:icon="@drawable/ic_whatshot_black_24dp"
-        android:title="@string/nav_tankko" />
+        android:title="@string/TankkoTitle" />
     <item
         android:id="@+id/navrank"
         android:icon="@drawable/ic_trending_down_black_24dp"
