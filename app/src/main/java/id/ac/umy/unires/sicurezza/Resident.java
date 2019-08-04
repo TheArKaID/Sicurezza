@@ -67,7 +67,6 @@ public class Resident extends AppCompatActivity {
             detailPoinModels = savedInstanceState.getParcelableArrayList("detail");
             adapter();
         } else {
-            detailPoinModels = new ArrayList<>();
             loadingBar();
             loadDataResident(idresident);
         }
@@ -100,6 +99,7 @@ public class Resident extends AppCompatActivity {
     }
 
     private void loadDataResident(final String idresident) {
+        detailPoinModels = new ArrayList<>();
         StringRequest request = new StringRequest(Request.Method.POST, CekDetailResidentURL,
                 new Response.Listener<String>() {
                     @Override

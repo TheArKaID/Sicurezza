@@ -40,6 +40,7 @@ public class PointFragment extends Fragment {
     ProgressDialog progress;
     ArrayList<PoinModel> poinModels;
     RecyclerView recyclerView;
+
     public PointFragment() {
     }
 
@@ -55,7 +56,6 @@ public class PointFragment extends Fragment {
             adapter();
         } else {
             loadingBar();
-            poinModels = new ArrayList<>();
             loadResident();
         }
 
