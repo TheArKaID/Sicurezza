@@ -30,4 +30,10 @@
     <string name="next">Next</string>
     <string name="get_started">Get Started</string>
     <string name="skip">Skip</string>
+    <string name="nama">Nama</string>
+    <string name="passcode_hint">PASSCODE(4 DIGITS)</string>
+    <string name="simpan">Simpan</string>
+    <string name="update_profile">UPDATE PROFILE</string>
+    <string name="konfirmasi_password">KONFIRMASI PASSWORD</string>
+    <string name="re_password">Re-Password</string>
 </resources>
