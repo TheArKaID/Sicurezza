@@ -1,6 +1,9 @@
 package id.ac.umy.unires.sicurezza.models;
 
-public class PoinModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PoinModel implements Parcelable {
 
     private String id;
     private String nama;
@@ -16,6 +19,25 @@ public class PoinModel {
 
     public PoinModel() {
     }
+
+    private PoinModel(Parcel in) {
+        id = in.readString();
+        nama = in.readString();
+        kamar = in.readString();
+        poin = in.readString();
+    }
+
+    public static final Creator<PoinModel> CREATOR = new Creator<PoinModel>() {
+        @Override
+        public PoinModel createFromParcel(Parcel in) {
+            return new PoinModel(in);
+        }
+
+        @Override
+        public PoinModel[] newArray(int size) {
+            return new PoinModel[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -49,4 +71,16 @@ public class PoinModel {
         this.poin = poin;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(nama);
+        dest.writeString(kamar);
+        dest.writeString(poin);
+    }
 }

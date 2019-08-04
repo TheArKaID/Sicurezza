@@ -47,11 +47,17 @@ public class PointFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_point, container, false);
 
-        loadingBar();
-        poinModels = new ArrayList<>();
         recyclerView = view.findViewById(R.id.poin_recycler);
         recyclerView.setHasFixedSize(true);
-        loadResident();
+
+        if(savedInstanceState!=null){
+            poinModels = savedInstanceState.getParcelableArrayList("point");
+            adapter();
+        } else{
+            loadingBar();
+            poinModels = new ArrayList<>();
+            loadResident();
+        }
 
         ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
             @Override
@@ -136,5 +142,11 @@ public class PointFragment extends Fragment {
             loadingBar();
             loadResident();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("point", poinModels);
     }
 }
