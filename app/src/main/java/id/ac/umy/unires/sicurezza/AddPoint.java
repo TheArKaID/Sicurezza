@@ -53,11 +53,18 @@ public class AddPoint extends AppCompatActivity {
         setContentView(R.layout.activity_add_point);
         Objects.requireNonNull(getSupportActionBar()).hide();
         idresident = Objects.requireNonNull(getIntent().getExtras()).getString("idresident");
-        loadingBar();
-        tengKoModels = new ArrayList<>();
+
         recyclerView = findViewById(R.id.rv_addpoin);
         recyclerView.setHasFixedSize(true);
-        loadTengKo();
+
+        if(savedInstanceState!=null){
+            tengKoModels = savedInstanceState.getParcelableArrayList("addpoint");
+            adapter();
+        } else{
+            loadingBar();
+            tengKoModels = new ArrayList<>();
+            loadTengKo();
+        }
 
         ItemClick.addTo(recyclerView).setmOnItemClickListener(new ItemClick.OnItemClickListener() {
             @Override
@@ -191,5 +198,11 @@ public class AddPoint extends AppCompatActivity {
             }
         };
         Volley.newRequestQueue(this).add(request);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("addpoint", tengKoModels);
     }
 }
