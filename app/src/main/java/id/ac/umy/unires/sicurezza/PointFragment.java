@@ -82,24 +82,28 @@ public class PointFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                PoinModel model = new PoinModel();
-                                String object = jsonArray.getString(i);
-                                JSONObject jsonObject = new JSONObject(object);
-                                model.setId(jsonObject.getString("idresident"));
-                                model.setKamar(jsonObject.getString("idresident"));
-                                model.setNama(jsonObject.getString("namaresident"));
-                                model.setPoin(jsonObject.getString("poin"));
-                                poinModels.add(model);
-                            }
+                        if(!response.equals("null")){
+                            try {
+                                JSONArray jsonArray = new JSONArray(response);
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    PoinModel model = new PoinModel();
+                                    String object = jsonArray.getString(i);
+                                    JSONObject jsonObject = new JSONObject(object);
+                                    model.setId(jsonObject.getString("idresident"));
+                                    model.setKamar(jsonObject.getString("idresident"));
+                                    model.setNama(jsonObject.getString("namaresident"));
+                                    model.setPoin(jsonObject.getString("poin"));
+                                    poinModels.add(model);
+                                }
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            }
+                            adapter();
+                        }else{
+                            Toast.makeText(getContext(), "Anda tidak punya Resident", Toast.LENGTH_SHORT).show();
                         }
-                        adapter();
                         progress.dismiss();
                     }
                 },

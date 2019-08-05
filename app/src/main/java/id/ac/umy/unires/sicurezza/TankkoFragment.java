@@ -65,22 +65,26 @@ public class TankkoFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                TengKoModel model = new TengKoModel();
-                                String object = jsonArray.getString(i);
-                                JSONObject jsonObject = new JSONObject(object);
-                                model.setNamapelanggaran(jsonObject.getString("penjelasan"));
-                                model.setPoint(jsonObject.getString("poin"));
-                                tengKoModels.add(model);
-                            }
+                        if(!response.equals("null")){
+                            try {
+                                JSONArray jsonArray = new JSONArray(response);
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    TengKoModel model = new TengKoModel();
+                                    String object = jsonArray.getString(i);
+                                    JSONObject jsonObject = new JSONObject(object);
+                                    model.setNamapelanggaran(jsonObject.getString("penjelasan"));
+                                    model.setPoint(jsonObject.getString("poin"));
+                                    tengKoModels.add(model);
+                                }
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(getContext(), "Gagal, " + ((e.getMessage() != null) ? e.getMessage() : "Coba lagi."), Toast.LENGTH_SHORT).show();
+                            }
+                            adapter();
+                        }else{
+                            Toast.makeText(getContext(), "Tidak ada Data Teng-Ko", Toast.LENGTH_SHORT).show();
                         }
-                        adapter();
                         progress.dismiss();
                     }
                 },
