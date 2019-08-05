@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
-import static id.ac.umy.unires.sicurezza.TankkoFragment.idsenior;
 
 public class NavPage extends AppCompatActivity {
 
@@ -32,12 +31,19 @@ public class NavPage extends AppCompatActivity {
 
     private TextView navTitle;
 
+    SharedPreferences pref;
+    SharedPreferences.Editor prefEdit;
+    public static String idsenior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_page);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
+
+        pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
+        idsenior = pref.getString("username", null);
 
         mMainFrame = findViewById(R.id.main_frame);
         mMainNav = findViewById(R.id.bottom_nav);
@@ -103,8 +109,8 @@ public class NavPage extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                SharedPreferences pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-                                SharedPreferences.Editor prefEdit = pref.edit();
+
+                                prefEdit = pref.edit();
                                 prefEdit.putString("username", null);
                                 prefEdit.putString("password", null);
                                 prefEdit.apply();

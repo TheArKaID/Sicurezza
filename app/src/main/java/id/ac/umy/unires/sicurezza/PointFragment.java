@@ -31,6 +31,7 @@ import java.util.Map;
 import id.ac.umy.unires.sicurezza.adapters.PoinAdapter;
 import id.ac.umy.unires.sicurezza.models.PoinModel;
 
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekResidentURL;
 
 public class PointFragment extends Fragment {
@@ -112,7 +113,7 @@ public class PointFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("idsenior", TankkoFragment.idsenior);
+                params.put("idsenior", idsenior);
                 return params;
             }
         };

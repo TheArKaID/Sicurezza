@@ -34,7 +34,7 @@ import id.ac.umy.unires.sicurezza.adapters.TengKoAdapter;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
 import static id.ac.umy.unires.sicurezza.Resident.ADDPOINT;
-import static id.ac.umy.unires.sicurezza.TankkoFragment.idsenior;
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekTengKoURL;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.TambahPoinURL;
 

@@ -34,6 +34,7 @@ import java.util.Objects;
 import id.ac.umy.unires.sicurezza.adapters.PoinDetailAdapter;
 import id.ac.umy.unires.sicurezza.models.DetailPoinModel;
 
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekDetailResidentURL;
 
 public class Resident extends AppCompatActivity {
@@ -146,7 +147,7 @@ public class Resident extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("idsenior", TankkoFragment.idsenior);
+                params.put("idsenior", idsenior);
                 params.put("idresident", idresident);
                 return params;
             }

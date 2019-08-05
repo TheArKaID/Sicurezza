@@ -30,12 +30,11 @@ import java.util.Objects;
 import id.ac.umy.unires.sicurezza.adapters.TengKoAdapter;
 import id.ac.umy.unires.sicurezza.models.TengKoModel;
 
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekTengKoURL;
 
 public class TankkoFragment extends Fragment {
 
-
-    public static String idsenior = "U41A";
     ProgressDialog progress;
     ArrayList<TengKoModel> tengKoModels;
     RecyclerView recyclerView;

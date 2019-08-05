@@ -29,6 +29,7 @@ import java.util.Map;
 import id.ac.umy.unires.sicurezza.adapters.RankAdapter;
 import id.ac.umy.unires.sicurezza.models.RankModel;
 
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekRankURL;
 
 public class RankFragment extends Fragment {
@@ -96,7 +97,7 @@ public class RankFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("idsenior", TankkoFragment.idsenior);
+                params.put("idsenior", idsenior);
                 return params;
             }
         };
