@@ -37,15 +37,13 @@ public class ProfileActivity extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     ProgressDialog progress;
+    String[] namasenior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
-
-        loadingBar("Mengecek Data");
-        cekData(idsenior);
 
         tvNama = findViewById(R.id.tv_epNama);
         etNama = findViewById(R.id.et_epNama);
@@ -54,6 +52,14 @@ public class ProfileActivity extends AppCompatActivity {
         etConfirmPass = findViewById(R.id.et_confirmpass);
         etRepassword = findViewById(R.id.et_repRePassword);
         btnSimpan = findViewById(R.id.btn_epSimpan);
+
+        if(savedInstanceState!=null){
+            namasenior = savedInstanceState.getStringArray("senior");
+            adapter();
+        }else{
+            loadingBar("Mengecek Data");
+            cekData(idsenior);
+        }
 
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,14 +92,19 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void adapter() {
+        tvNama.setText(namasenior[1]);
+        etNama.setText(namasenior[0]);
+    }
+
     private void cekData(final String idsenior) {
         StringRequest request = new StringRequest(Request.Method.POST, CekProfile,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        String[] namasenior = response.split("\n");
-                        tvNama.setText(response);
-                        etNama.setText(namasenior[0]);
+                        namasenior = response.split("\n");
+                        namasenior[1]= response;
+                        adapter();
                         progress.dismiss();
                     }
                 },
@@ -179,5 +190,11 @@ public class ProfileActivity extends AppCompatActivity {
         progress.setCanceledOnTouchOutside(false);
 
         progress.show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putStringArray("senior", namasenior);
     }
 }
