@@ -84,7 +84,7 @@ public class NavPage extends AppCompatActivity {
                         return true;
 
                     case R.id.navpoint:
-                        setFragment(pointFragment, "Tambah Poin");
+                        setFragment(pointFragment, "Data Resident");
                         return true;
 
                     default:
