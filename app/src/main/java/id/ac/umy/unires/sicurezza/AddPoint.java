@@ -196,7 +196,7 @@ public class AddPoint extends AppCompatActivity {
                 params.put("idsenior", idsenior);
                 params.put("idresident", idresident);
                 params.put("idpelanggaran", idpelanggaran);
-                params.put("keterangan", keterangan);
+                params.put("keterangan", keterangan.equals("")?"-":keterangan);
                 return params;
             }
         };
