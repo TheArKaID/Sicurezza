@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
 
         pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("pin", "1234");
-                editor.apply();
+//                SharedPreferences.Editor editor = pref.edit();
+//                editor.putString("pin", "1234");
+//                editor.apply();
                 if(pref.getString("username", null)!=null && pref.getString("password", null)!=null){
                     if(pref.getString("pin", null)!=null){
                         PIN(pref.getString("pin", null));

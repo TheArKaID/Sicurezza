@@ -9,4 +9,5 @@ public class ServerAPI {
     public final static String CekDetailResidentURL = URL+"cek-detail.php";
     public final static String TambahPoinURL = URL+"tambah-poin.php";
     public final static String CekRankURL = URL+"cek-rank.php";
+    public final static String UpdateProfileURL = URL+"update-profile.php";
 }
