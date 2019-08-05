@@ -1,5 +1,6 @@
 package id.ac.umy.unires.sicurezza;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,26 +9,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.chaos.view.PinView;
 
 import java.util.Objects;
 
+import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekStatusURL;
+
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences pref;
+    ProgressDialog progress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
+
+        loadingBar();
+        cekStatusAplikasi();
 
         pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
 
@@ -128,5 +143,51 @@ public class MainActivity extends AppCompatActivity {
 
         ad = builder.show();
         ad.show();
+    }
+    private void cekStatusAplikasi() {
+        StringRequest request = new StringRequest(Request.Method.POST, CekStatusURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if(!response.equals("ok")){
+                            progress.dismiss();
+                            alertStatus(response);
+                        }else {
+                            progress.dismiss();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progress.dismiss();
+                        alertStatus("Cek Koneksi Internet Anda");
+                    }
+                });
+        Volley.newRequestQueue(this).add(request);
+    }
+    private void loadingBar() {
+        if (progress == null)
+            progress = new ProgressDialog(this);
+        progress.setMessage("Memeriksa Aplikasi");
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
+
+        progress.show();
+    }
+
+    private void alertStatus(String response){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
+                .setMessage(response)
+                .setCancelable(false)
+                .setPositiveButton("Mengerti", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        finishAndRemoveTask();
+                        System.exit(0);
+                    }
+                });
+        builder.show();
     }
 }
