@@ -1,10 +1,12 @@
 package id.ac.umy.unires.sicurezza;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static id.ac.umy.unires.sicurezza.TankkoFragment.idsenior;
+import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.UpdateProfileURL;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -31,13 +33,13 @@ public class ProfileActivity extends AppCompatActivity {
     boolean isChangePass = false;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
-//        hideSystemUI();
 
         etNama = findViewById(R.id.et_epNama);
         etPassword = findViewById(R.id.et_epPassword);
@@ -55,11 +57,13 @@ public class ProfileActivity extends AppCompatActivity {
                 ConfirmPass = etConfirmPass.getText().toString();
                 Repassword = etRepassword.getText().toString();
 
+                loadingBar();
+
                 isChangePass = !TextUtils.isEmpty(Password);
                 pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
                 if(TextUtils.isEmpty(Nama)){
                     Toast.makeText(ProfileActivity.this, "Nama tidak boleh kosong", Toast.LENGTH_LONG).show();
-                } else if(TextUtils.isEmpty(Password)) {
+                } else if(TextUtils.isEmpty(ConfirmPass)) {
                     Toast.makeText(ProfileActivity.this, "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
                 } else {
                     if(!Password.equals(Repassword)){
@@ -95,13 +99,14 @@ public class ProfileActivity extends AppCompatActivity {
                         } else{
                             Toast.makeText(ProfileActivity.this, response, Toast.LENGTH_LONG).show();
                         }
-
+                        progress.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(ProfileActivity.this, error.getMessage()!=null ? error.getMessage() : "Fail", Toast.LENGTH_SHORT).show();
+                        progress.dismiss();
                     }
                 }){
             @Override
@@ -118,14 +123,13 @@ public class ProfileActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(request);
     }
 
-//    private void hideSystemUI() {
-//        View decorView = getWindow().getDecorView();
-//        decorView.setSystemUiVisibility(
-//                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
-//    }
+    private void loadingBar() {
+        if (progress == null)
+            progress = new ProgressDialog(this);
+        progress.setMessage("Memeriksa Data Anda");
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
+
+        progress.show();
+    }
 }
