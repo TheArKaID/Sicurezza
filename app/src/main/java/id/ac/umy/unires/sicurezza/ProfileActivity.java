@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,10 +24,12 @@ import java.util.Map;
 import java.util.Objects;
 
 import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
+import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekProfile;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.UpdateProfileURL;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    TextView tvNama;
     EditText etNama, etPassword, etRepassword, etPasscode, etConfirmPass;
     String Nama, Password, Repassword, Passcode, ConfirmPass;
     Button btnSimpan;
@@ -41,6 +44,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        loadingBar("Mengecek Data");
+        cekData(idsenior);
+
+        tvNama = findViewById(R.id.tv_epNama);
         etNama = findViewById(R.id.et_epNama);
         etPassword = findViewById(R.id.et_epPassword);
         etPasscode = findViewById(R.id.et_epPasscode);
@@ -57,23 +64,55 @@ public class ProfileActivity extends AppCompatActivity {
                 ConfirmPass = etConfirmPass.getText().toString();
                 Repassword = etRepassword.getText().toString();
 
-                loadingBar();
+                loadingBar("Mengupdate Data");
 
                 isChangePass = !TextUtils.isEmpty(Password);
                 pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
                 if(TextUtils.isEmpty(Nama)){
                     Toast.makeText(ProfileActivity.this, "Nama tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    progress.dismiss();
                 } else if(TextUtils.isEmpty(ConfirmPass)) {
-                    Toast.makeText(ProfileActivity.this, "Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ProfileActivity.this, "Konfirmasi Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+                    progress.dismiss();
                 } else {
                     if(!Password.equals(Repassword)){
                         Toast.makeText(ProfileActivity.this, "Password baru tidak sama", Toast.LENGTH_LONG).show();
+                        progress.dismiss();
                     } else{
                         updateProfile(Nama, Password, ConfirmPass, isChangePass);
                     }
                 }
             }
         });
+    }
+
+    private void cekData(final String idsenior) {
+        StringRequest request = new StringRequest(Request.Method.POST, CekProfile,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        String[] namasenior = response.split("\n");
+                        tvNama.setText(response);
+                        etNama.setText(namasenior[0]);
+                        progress.dismiss();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(ProfileActivity.this, error.getMessage()!=null?error.getMessage():"Fail. Refresh Needed", Toast.LENGTH_SHORT).show();
+                        progress.dismiss();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams() {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("idsenior", idsenior);
+                return params;
+            }
+        }
+        ;
+        Volley.newRequestQueue(this).add(request);
     }
 
     private void updateProfile(final String nama, final String password, final String confirmPass, final boolean isChangePass) {
@@ -88,13 +127,22 @@ public class ProfileActivity extends AppCompatActivity {
                             editor.apply();
 
                             if(!TextUtils.isEmpty(Passcode)){
-                                SharedPreferences pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("pin", Passcode);
-                                editor.apply();
-                                Toast.makeText(ProfileActivity.this, "PIN diperbaharui", Toast.LENGTH_SHORT).show();
+                                editor = pref.edit();
+                                if(Passcode.equals("0000")){
+                                    editor.putString("pin", null);
+                                    editor.apply();
+                                    Toast.makeText(ProfileActivity.this, "PIN dihapus", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    editor.putString("pin", Passcode);
+                                    editor.apply();
+                                    Toast.makeText(ProfileActivity.this, "PIN diperbaharui", Toast.LENGTH_SHORT).show();
+                                }
                             }
-
+                            tvNama.setText(nama);
+                            etPasscode.setText("");
+                            etConfirmPass.setText("");
+                            etPassword.setText("");
+                            etRepassword.setText("");
                             Toast.makeText(ProfileActivity.this, response, Toast.LENGTH_LONG).show();
                         } else{
                             Toast.makeText(ProfileActivity.this, response, Toast.LENGTH_LONG).show();
@@ -123,10 +171,10 @@ public class ProfileActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(request);
     }
 
-    private void loadingBar() {
+    private void loadingBar(String message) {
         if (progress == null)
             progress = new ProgressDialog(this);
-        progress.setMessage("Memeriksa Data Anda");
+        progress.setMessage(message);
         progress.setCancelable(false);
         progress.setCanceledOnTouchOutside(false);
 

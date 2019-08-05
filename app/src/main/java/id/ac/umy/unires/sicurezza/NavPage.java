@@ -60,7 +60,7 @@ public class NavPage extends AppCompatActivity {
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Setting(idsenior);
+                Setting();
             }
         });
 
@@ -94,9 +94,8 @@ public class NavPage extends AppCompatActivity {
         });
     }
 
-    private void Setting(String idsenior) {
+    private void Setting() {
         Intent settingIntent = new Intent(this, ProfileActivity.class);
-        settingIntent.putExtra("idsenior", idsenior);
         startActivity(settingIntent);
     }
 

@@ -136,20 +136,33 @@
                     android:layout_height="36dp"
                     android:src="@drawable/ic_passcode" />
 
-                <EditText
-                    android:id="@+id/et_epPasscode"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:backgroundTint="@color/whiteColors"
-                    android:hint="@string/passcode_hint"
-                    android:inputType="numberPassword"
-                    android:maxLength="4"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:textColor="@color/whiteColors"
-                    android:textColorHint="@color/whiteTransparan"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/whiteColors"
+                        android:textSize="10sp"
+                        android:layout_gravity="end"
+                        android:text="@string/type_0000_to_remove"/>
+                    <EditText
+                        android:id="@+id/et_epPasscode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@color/whiteColors"
+                        android:hint="@string/passcode_hint"
+                        android:inputType="numberPassword"
+                        android:maxLength="4"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/whiteColors"
+                        android:textColorHint="@color/whiteTransparan"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <TextView
