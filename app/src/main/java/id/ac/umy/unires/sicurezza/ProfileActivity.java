@@ -140,6 +140,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void restartApp() {
         Intent mStartActivity = new Intent(this, MainActivity.class);
+        mStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         int mPendingIntentId = 123456;
         PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
