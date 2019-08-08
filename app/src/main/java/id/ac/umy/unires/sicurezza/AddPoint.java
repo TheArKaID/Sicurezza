@@ -44,10 +44,12 @@ public class AddPoint extends AppCompatActivity {
     ArrayList<TengKoModel> tengKoModels;
     RecyclerView recyclerView;
     String idresident, keterangan;
+    MainActivity main = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(main.getSavedTheme(getApplicationContext()));
         setContentView(R.layout.activity_add_point);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();

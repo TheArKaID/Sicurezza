@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?themePrimary"
     tools:context=".AddPoint">
 
     <android.support.design.widget.AppBarLayout
@@ -15,7 +16,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/basicApps">
+            android:background="?themePrimary">
 
             <TextView
                 android:layout_width="match_parent"
@@ -27,7 +28,7 @@
                 android:layout_margin="16dp"
                 android:text="@string/PointTitle"
                 android:textAlignment="center"
-                android:textColor="@color/whiteColors"
+                android:textColor="?themeTextColor"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </android.support.v7.widget.Toolbar>
