@@ -35,7 +35,7 @@
         android:layout_marginBottom="25dp"
         android:layout_weight="0.5"
         android:contentDescription="@string/divKeamanan"
-        app:srcCompat="@drawable/keamanan" />
+        android:src="@mipmap/keamanan"/>
 
     <Button
         android:id="@+id/btnsignin"
