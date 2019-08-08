@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/whiteColors"
+    android:background="?themePrimary"
     android:orientation="horizontal"
     android:padding="6dp">
 
@@ -15,8 +15,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_person_white_24dp"
-        app:civ_circle_background_color="@color/basicApps"
+        android:src="?themeIconRank"
+        app:civ_circle_background_color="?themeTextHintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:maxLength="18"
             android:text="@string/resident"
-            android:textColor="@color/basicApps"
+            android:textColor="?themeTextColor"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/noKamar"
-                android:textColor="@color/basicApps" />
+                android:textColor="?themeTextColor" />
 
             <TextView
                 android:id="@+id/tv_pointPoin"
@@ -67,7 +67,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_weight="0.5"
                 android:gravity="end"
-                android:textColor="@color/basicApps"
+                android:textColor="?themeTextColor"
                 android:textSize="15sp"
                 tools:text="50" />
         </LinearLayout>
@@ -79,7 +79,7 @@
         android:layout_height="0.3dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:background="#444444"
+        android:background="?themeBackgroundColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
