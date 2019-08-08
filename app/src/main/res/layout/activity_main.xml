@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/basicApps"
+    android:background="?themePrimary"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -21,7 +21,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/divKeamanan"
-        android:textColor="@color/whiteColors"
+        android:textColor="?themeTextColor"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -45,7 +45,8 @@
         android:layout_gravity="center"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/whiteColors"
+        android:background="?themePrimaryDark"
+        android:textColor="?themeTextColor"
         android:text="@string/btnMasuk" />
 
     <TextView
@@ -59,5 +60,5 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/timeline"
-        android:textColor="@color/whiteColors" />
+        android:textColor="?themeTextColor"/>
 </LinearLayout>

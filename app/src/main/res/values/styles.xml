@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.DarkTheme">
+        <item name="themePrimary">@color/darkThemePrimaryColor</item>
+        <item name="themePrimaryDark">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeAccent">@color/whiteMuh3</item>
+        <item name="themeTextColor">@color/darkThemeTextColor</item>
+        <item name="themeTextHintColor">@color/darkThemeHintColor</item>
+        <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+    </style>
+
+    <style name="AppTheme.LightTheme">
+        <item name="themePrimary">@color/lightThemePrimaryColor</item>
+        <item name="themePrimaryDark">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeAccent">@color/lightThemeAccentColor</item>
+        <item name="themeTextColor">@color/lightThemeTextColor</item>
+        <item name="themeTextHintColor">@color/lightThemeHintColor</item>
+        <item name="themeBackgroundColor">@color/lightThemePrimaryDarkColor</item>
+    </style>
 </resources>

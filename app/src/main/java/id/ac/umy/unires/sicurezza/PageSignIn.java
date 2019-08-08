@@ -29,6 +29,7 @@ public class PageSignIn extends AppCompatActivity {
 
     SharedPreferences pref;
     SharedPreferences.Editor prefEdit;
+    MainActivity main = new MainActivity();
 
     ProgressDialog progrss;
     String Username, Password;
@@ -36,6 +37,7 @@ public class PageSignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(main.getSavedTheme(getApplicationContext()));
         setContentView(R.layout.activity_page_sign_in);
         getSupportActionBar().hide();
 
