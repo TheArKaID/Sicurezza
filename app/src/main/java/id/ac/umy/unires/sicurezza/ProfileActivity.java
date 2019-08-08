@@ -1,6 +1,12 @@
 package id.ac.umy.unires.sicurezza;
 
+import android.app.AlarmManager;
+import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +14,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -23,6 +31,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import static id.ac.umy.unires.sicurezza.MainActivity.THEMEDARK;
+import static id.ac.umy.unires.sicurezza.MainActivity.THEMELIGHT;
 import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekProfile;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.UpdateProfileURL;
@@ -33,6 +43,8 @@ public class ProfileActivity extends AppCompatActivity {
     EditText etNama, etPassword, etRepassword, etPasscode, etConfirmPass;
     String Nama, Password, Repassword, Passcode, ConfirmPass;
     Button btnSimpan;
+    ToggleButton tgl_changeTheme;
+
     boolean isChangePass = false;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -54,6 +66,31 @@ public class ProfileActivity extends AppCompatActivity {
         etConfirmPass = findViewById(R.id.et_confirmpass);
         etRepassword = findViewById(R.id.et_repRePassword);
         btnSimpan = findViewById(R.id.btn_epSimpan);
+        tgl_changeTheme = findViewById(R.id.tgl_changeTheme);
+
+        cekThemeStatus();
+        tgl_changeTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
+                editor = pref.edit();
+                if(isChecked)
+                    editor.putString("theme", THEMELIGHT);
+                else
+                    editor.putString("theme", THEMEDARK);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this)
+                        .setMessage("Tema diubah. Restart Aplikasi diperlukan.")
+                        .setCancelable(false)
+                        .setPositiveButton("OK",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        restartApp();
+                                    }
+                                });
+                builder.show();
+                editor.apply();
+            }
+        });
 
         if(savedInstanceState!=null){
             namasenior = savedInstanceState.getStringArray("senior");
@@ -92,6 +129,23 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void cekThemeStatus() {
+        pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
+        String color = pref.getString("theme", THEMEDARK);
+        boolean isWhite = !(color != null && color.equals(THEMEDARK));
+        tgl_changeTheme.setChecked(isWhite);
+    }
+
+    private void restartApp() {
+        Intent mStartActivity = new Intent(this, MainActivity.class);
+        int mPendingIntentId = 123456;
+        PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+        finishAndRemoveTask();
+        System.exit(0);
     }
 
     private void adapter() {

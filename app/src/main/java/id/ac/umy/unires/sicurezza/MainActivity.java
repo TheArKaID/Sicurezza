@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
     public int getSavedTheme(Context context) {
         pref = context.getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-        String theme = pref.getString("theme", THEMELIGHT);
+        String theme = pref.getString("theme", THEMEDARK);
         switch (theme) {
             case THEMEDARK:
                 return R.style.AppTheme_DarkTheme;
