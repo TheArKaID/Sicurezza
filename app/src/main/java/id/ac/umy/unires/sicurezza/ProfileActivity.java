@@ -38,10 +38,12 @@ public class ProfileActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     ProgressDialog progress;
     String[] namasenior;
+    MainActivity main = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(main.getSavedTheme(getApplicationContext()));
         setContentView(R.layout.activity_profile);
         Objects.requireNonNull(getSupportActionBar()).hide();
 

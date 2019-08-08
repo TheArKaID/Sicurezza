@@ -16,6 +16,7 @@
         <item name="themeTextHintColor">@color/darkThemeHintColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
         <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
+        <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
     </style>
 
     <style name="AppTheme.LightTheme">
@@ -26,5 +27,6 @@
         <item name="themeTextHintColor">@color/lightThemeHintColor</item>
         <item name="themeBackgroundColor">@color/lightThemePrimaryDarkColor</item>
         <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
+        <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
     </style>
 </resources>
