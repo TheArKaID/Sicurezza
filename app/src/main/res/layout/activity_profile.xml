@@ -162,9 +162,29 @@
                         android:textColorHint="@color/whiteTransparan"
                         android:textStyle="bold" />
                 </LinearLayout>
-
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="15dp"
+                android:paddingEnd="25dp"
+                android:paddingStart="25dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/whiteColors"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:text="@string/white_theme"/>
 
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end" />
+            </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
