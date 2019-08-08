@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/whiteColors"
+    android:background="?themePrimary"
     android:orientation="horizontal"
     android:padding="6dp">
 
@@ -16,8 +16,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_person_white_24dp"
-        app:civ_circle_background_color="@color/basicApps"
+        android:src="?themeIconRank"
+        app:civ_circle_background_color="?themeTextHintColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:text="@string/resident"
-            android:textColor="@color/basicApps"
+            android:textColor="?themeTextColor"
             android:textSize="18sp"
             android:maxLines="1"
             android:textStyle="bold" />
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/usroh"
-            android:textColor="@color/basicApps"
+            android:textColor="?themeTextColor"
             tools:layout_editor_absoluteX="76dp"
             tools:layout_editor_absoluteY="38dp" />
 

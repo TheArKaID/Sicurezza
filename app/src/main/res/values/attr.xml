@@ -6,5 +6,6 @@
     <attr name="themeTextColor" format="reference"/>
     <attr name="themeTextHintColor" format="reference"/>
     <attr name="themeBackgroundColor" format="reference"/>
+    <attr name="themeIconRank" format="reference"/>
 
 </resources>
