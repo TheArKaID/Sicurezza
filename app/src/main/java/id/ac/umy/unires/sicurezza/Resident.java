@@ -46,10 +46,12 @@ public class Resident extends AppCompatActivity {
     ImageView ivOk;
     ArrayList<DetailPoinModel> detailPoinModels;
     RecyclerView recyclerView;
+    MainActivity main = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(main.getSavedTheme(getApplicationContext()));
         setContentView(R.layout.activity_resident);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();
