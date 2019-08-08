@@ -34,10 +34,12 @@ public class NavPage extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor prefEdit;
     public static String idsenior;
+    MainActivity main = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(main.getSavedTheme(getApplicationContext()));
         setContentView(R.layout.activity_nav_page);
         Objects.requireNonNull(getSupportActionBar()).hide();
         hideSystemUI();

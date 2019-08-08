@@ -11,7 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/basicApps">
+        android:background="?themePrimary">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,6 +26,7 @@
                 android:focusable="true"
                 android:longClickable="true"
                 android:src="@drawable/ic_power_settings_new_black_24dp"
+                android:tint="?themeTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/TankkoTitle"
                 android:textAlignment="center"
-                android:textColor="@color/whiteColors"
+                android:textColor="?themeTextColor"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -55,6 +56,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:src="@drawable/ic_settings_black_24dp"
+                android:tint="?themeTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -67,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8"
+        android:background="?themePrimary"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -79,9 +82,9 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_weight="0.075"
-        android:background="@color/basicApps"
-        app:itemIconTint="@color/nav_item_color"
-        app:itemTextColor="@color/nav_item_color"
+        android:background="?themePrimary"
+        app:itemIconTint="?themeTextColor"
+        app:itemTextColor="?themeTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
