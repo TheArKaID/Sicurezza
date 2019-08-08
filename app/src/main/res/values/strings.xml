@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Sicurezza</string>
     <string name="btnSignIn">SIGN IN</string>
+    <string name="btnMasuk">Masuk</string>
     <string name="divKeamanan">DIVISI KEAMANAN</string>
     <string name="timeline">Anda Nyaman Karena Kami Amankan</string>
     <string name="userName">User Name</string>
@@ -8,7 +9,7 @@
     <string name="nav_tankko">Tankko</string>
     <string name="nav_rank">Rank</string>
     <string name="nav_point">Resident</string>
-    <string name="welcome">WELCOME TO SICUREZZA</string>
+    <string name="welcome">WELCOME TO THE SICUREZZA</string>
 
     <string name="texttankko">Texnya panjang bangat jangan ditulis disini yaa bos jangan ditiru deh yaa om karena panjang banagt sumpah cape baca juga</string>
     <string name="number">2</string>

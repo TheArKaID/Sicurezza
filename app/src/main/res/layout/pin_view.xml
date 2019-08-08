@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:cursorVisible="true"
         android:inputType="number"
-        android:itemBackground="@mipmap/ic_launcher"
+        android:itemBackground="@color/basicApps"
         android:padding="16dp"
         android:textColor="@color/fullTransparan"
         android:textSize="18sp"
