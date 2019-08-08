@@ -51,7 +51,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingStart="25dp"
-                android:paddingEnd="25dp">
+                android:paddingEnd="25dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
 
                 <ImageView
                     android:layout_width="36dp"
@@ -72,7 +74,7 @@
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textColor="?themeTextColor"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
@@ -180,7 +182,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="?themeTextColor"
                     android:layout_gravity="center_vertical"
-                    android:gravity="start"
+                    android:gravity="end"
+                    android:textStyle="bold|italic"
                     android:text="@string/white_theme"/>
 
                 <ToggleButton
