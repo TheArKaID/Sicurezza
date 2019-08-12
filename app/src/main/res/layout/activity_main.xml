@@ -4,7 +4,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?themeBackgroundColor"
+    android:background="?themeBackgroundMain"
     android:orientation="vertical"
     tools:background="@color/darkThemePrimaryDarkColor"
     tools:context=".MainActivity">
@@ -21,7 +21,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
         android:text="@string/divKeamanan"
-        android:textColor="?themeTextColor"
+        android:textColor="?themeTextTitleMainColor"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:textColor="@color/darkThemeTextColor" />

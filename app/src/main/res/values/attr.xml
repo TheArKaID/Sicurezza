@@ -3,16 +3,24 @@
     <attr name="themePrimary" format="reference" />
     <attr name="themePrimaryDark" format="reference" />
     <attr name="themeAccent" format="reference" />
+    <attr name="themeFrame" format="reference" />
     <attr name="themeTextColor" format="reference"/>
     <attr name="themeTextHintColor" format="reference"/>
     <attr name="themeBackgroundColor" format="reference"/>
+    <attr name="themeBackgroundMain" format="reference"/>
+    <attr name="themeBackgroundResident" format="reference"/>
+    <attr name="themeTextItemResidentColor" format="reference"/>
+    <attr name="themeTextTitleMainColor" format="reference"/>
+    <attr name="themeTextProfileColor" format="reference"/>
     <attr name="themeBackgroundButtonColor" format="reference"/>
     <attr name="themeIconRank" format="reference"/>
     <attr name="themeBackgroundProfile" format="reference"/>
     <attr name="themeBackgroundActionBar" format="reference"/>
     <attr name="themeBackgroundNavBar" format="reference"/>
+    <attr name="themeTextNavBar" format="reference"/>
     <attr name="themeTintIconNavBar" format="reference"/>
     <attr name="themeBackgroundItem" format="reference"/>
+    <attr name="themeBackgroundItemResident" format="reference"/>
     <attr name="themeFloatingBackground" format="reference"/>
     <attr name="themeFloatingTint" format="reference"/>
 

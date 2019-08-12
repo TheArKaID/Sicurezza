@@ -15,7 +15,8 @@
         <item name="themeTextColor">@color/darkThemeTextColor</item>
         <item name="themeTextHintColor">@color/darkThemeHintColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundMain">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryColor</item>
         <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
         <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
         <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
@@ -33,6 +34,7 @@
         <item name="themeTextColor">@color/lightThemeTextColor</item>
         <item name="themeTextHintColor">@color/lightThemeHintColor</item>
         <item name="themeBackgroundColor">@color/lightThemePrimaryColor</item>
+        <item name="themeBackgroundMain">@color/lightThemePrimaryColor</item>
         <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
         <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
         <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
@@ -45,20 +47,28 @@
     </style>
 
     <style name="AppTheme.UniresTheme">
-        <item name="themePrimary">@color/darkThemePrimaryColor</item>
-        <item name="themePrimaryDark">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeAccent">@color/whiteMuh3</item>
-        <item name="themeTextColor">@color/darkThemeTextColor</item>
-        <item name="themeTextHintColor">@color/darkThemeHintColor</item>
+        <item name="themePrimary">@color/uniThemePrimaryColor</item>
+        <item name="themePrimaryDark">@color/uniThemePrimaryDarkColor</item>
+        <item name="themeAccent">@color/uniThemeAccentColor</item>
+        <item name="themeFrame">@color/uniThemeFrameColor</item>
+        <item name="themeTextColor">@color/uniThemeTextColor</item>
+        <item name="themeTextNavBar">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextProfileColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextHintColor">@color/uniThemeHintColor</item>
+        <item name="themeTextTitleMainColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextItemResidentColor">@color/uniThemeTextResidentItemColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundMain">@mipmap/sicurezza_bg_theme</item>//
+        <item name="themeBackgroundButtonColor">@color/uniThemeBackgroundButtonColor</item>
         <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
-        <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
-        <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
-        <item name="themeBackgroundNavBar">@color/darkThemeBackgroundActionBarColor</item>
-        <item name="themeTintIconNavBar">@color/darkThemeTintIconNavBarColor</item>
-        <item name="themeBackgroundItem">@color/darkThemePrimaryColor</item>
-        <item name="themeFloatingBackground">@color/darkThemeFloatingBackground</item>
+        <item name="themeBackgroundProfile">@drawable/background_unires_profile</item>
+        <item name="themeBackgroundActionBar">@color/uniThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundResident">@color/uniThemeBackgroundResidentColor</item>
+        <item name="themeBackgroundNavBar">@color/uniThemePrimaryColor</item>
+        <item name="themeTintIconNavBar">@color/uniThemeTintIconNavBarColor</item>
+        <item name="themeBackgroundItem">@color/uniThemeBackgroundItemColor</item>
+        <item name="themeBackgroundItemResident">@color/uniThemeBackgroundResidentItemColor</item>
+        <item name="themeFloatingBackground">@color/uniThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/darkThemeTextColor</item>
     </style>
 </resources>

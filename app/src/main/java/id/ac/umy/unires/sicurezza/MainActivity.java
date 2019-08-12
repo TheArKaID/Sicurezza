@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String THEMEDARK = "dark";
     public static final String THEMELIGHT = "light";
+    public static final String UNITHEME = "unires";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,6 +201,9 @@ public class MainActivity extends AppCompatActivity {
             case THEMEDARK:
                 return R.style.AppTheme_DarkTheme;
             case THEMELIGHT:
+                return R.style.AppTheme_LightTheme;
+            case UNITHEME:
+                return R.style.AppTheme_UniresTheme;
             default:
                 return R.style.AppTheme_LightTheme;
         }

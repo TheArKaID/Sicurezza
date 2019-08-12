@@ -51,4 +51,21 @@
     <color name="lightThemeTintIconNavBarColor">#2C2C2C</color>
     <color name="lightThemeFloatingBackground">#FDFDFD</color>
 
+    <!--Unires Theme Color-->
+    <color name="uniThemePrimaryColor">#0066ff</color>
+    <color name="uniThemePrimaryDarkColor">#004bbc</color>
+    <color name="uniThemeAccentColor">#0fd000</color>
+    <color name="uniThemeFrameColor">#FDFDFD</color>
+    <color name="uniThemeTextColor">#2C2C2C</color>
+    <color name="uniThemeTextResidentItemColor">#FDFDFD</color>
+    <color name="uniThemeHintColor">#e1e100</color>
+    <color name="uniThemeBackgroundActionBarColor">#efe925</color>
+    <color name="uniThemeBackgroundNavBarColor">#194394</color>
+    <color name="uniThemeBackgroundButtonColor">#FDFDFD</color>
+    <color name="uniThemeBackgroundItemColor">#FDFDFD</color>
+    <color name="uniThemeBackgroundResidentColor">#FDFDFD</color>
+    <color name="uniThemeBackgroundResidentItemColor">#0066ff</color>
+    <color name="uniThemeTintIconNavBarColor">#FDFDFD</color>
+    <color name="uniThemeTextNavBarColor">#FDFDFD</color>
+    <color name="uniThemeFloatingBackground">#f6eb14</color>
 </resources>

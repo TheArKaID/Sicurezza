@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextProfileColor"
                 android:textSize="21sp"
                 android:textStyle="bold"
                 tools:text="Wiliam Snoe"
@@ -36,7 +36,7 @@
             android:layout_marginTop="55dp"
             android:gravity="center"
             android:text="@string/update_profile"
-            android:textColor="?themeTextColor"
+            android:textColor="?themeTextProfileColor"
             android:textStyle="bold"
             tools:textColor="@color/darkThemeTextColor" />
 
@@ -62,7 +62,7 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="?themeIconRank"
-                    android:tint="?themeTextColor" />
+                    android:tint="?themeTextProfileColor" />
 
                 <EditText
                     android:id="@+id/et_epNama"
@@ -70,13 +70,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:autofillHints="@string/nama"
-                    android:backgroundTint="?themeTextColor"
+                    android:backgroundTint="?themeTextProfileColor"
                     android:hint="@string/nama"
                     android:inputType="text"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:textColor="?themeTextColor"
-                    android:textColorHint="?themeTextHintColor"
+                    android:textColor="?themeTextProfileColor"
+                    android:textColorHint="?themeTextProfileColor"
                     android:textStyle="bold"
                     tools:backgroundTint="@color/darkThemeTextColor"
                     tools:textColor="@color/darkThemeTextColor" />
@@ -95,7 +95,7 @@
                     android:layout_height="36dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_key"
-                    android:tint="?themeTextColor" />
+                    android:tint="?themeTextProfileColor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,12 +107,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:backgroundTint="?themeTextColor"
+                        android:backgroundTint="?themeTextProfileColor"
                         android:hint="@string/password"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
-                        android:textColor="?themeTextColor"
+                        android:textColor="?themeTextProfileColor"
                         android:textColorHint="?themeTextHintColor"
                         android:textStyle="bold"
                         tools:backgroundTint="@color/darkThemeTextColor"
@@ -123,12 +123,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:backgroundTint="?themeTextColor"
+                        android:backgroundTint="?themeTextProfileColor"
                         android:hint="@string/re_password"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
-                        android:textColor="?themeTextColor"
+                        android:textColor="?themeTextProfileColor"
                         android:textColorHint="?themeTextHintColor"
                         android:textStyle="bold"
                         tools:backgroundTint="@color/darkThemeTextColor"
@@ -148,7 +148,7 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_passcode"
-                    android:tint="?themeTextColor" />
+                    android:tint="?themeTextProfileColor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:text="@string/type_0000_to_remove"
-                        android:textColor="?themeTextColor"
+                        android:textColor="?themeTextProfileColor"
                         android:textSize="10sp"
                         tools:textColor="@color/darkThemeTextColor" />
 
@@ -169,13 +169,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:backgroundTint="?themeTextColor"
+                        android:backgroundTint="?themeTextProfileColor"
                         android:hint="@string/passcode_hint"
                         android:inputType="numberPassword"
                         android:maxLength="4"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
-                        android:textColor="?themeTextColor"
+                        android:textColor="?themeTextProfileColor"
                         android:textColorHint="?themeTextHintColor"
                         android:textStyle="bold"
                         tools:backgroundTint="@color/darkThemeTextColor"
@@ -197,7 +197,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="start"
                     android:text="@string/theme_selector"
-                    android:textColor="?themeTextColor"
+                    android:textColor="?themeTextProfileColor"
                     android:textStyle="bold|italic"
                     tools:textColor="@color/darkThemeTextColor" />
 
@@ -216,7 +216,7 @@
                 android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:text="@string/konfirmasi_password"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextProfileColor"
                 android:textStyle="bold"
                 tools:textColor="@color/darkThemeTextColor" />
 
@@ -225,12 +225,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:backgroundTint="?themeTextColor"
+                android:backgroundTint="?themeTextProfileColor"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextProfileColor"
                 android:textColorHint="?themeTextHintColor"
                 android:textStyle="bold"
                 tools:textColor="@color/darkThemeTextColor" />

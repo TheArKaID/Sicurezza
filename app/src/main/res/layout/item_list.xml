@@ -9,7 +9,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="?themeBackgroundItem"
+        android:background="?themeBackgroundItemResident"
         tools:background="@color/darkThemeBackgroundItemColor">
 
         <TextView
@@ -21,7 +21,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/number"
             android:textAlignment="center"
-            android:textColor="?themeTextColor"
+            android:textColor="?themeTextItemResidentColor"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
                 android:layout_marginEnd="16dp"
                 android:maxLines="1"
                 android:text="@string/Pelanggarn"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextItemResidentColor"
                 android:textSize="18sp"
                 tools:textColor="@color/darkThemeTextColor" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:text="@string/Tanggal"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextItemResidentColor"
                 tools:textColor="@color/darkThemeTextColor" />
 
         </LinearLayout>

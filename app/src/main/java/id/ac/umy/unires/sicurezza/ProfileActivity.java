@@ -30,6 +30,7 @@ import java.util.Objects;
 
 import static id.ac.umy.unires.sicurezza.MainActivity.THEMEDARK;
 import static id.ac.umy.unires.sicurezza.MainActivity.THEMELIGHT;
+import static id.ac.umy.unires.sicurezza.MainActivity.UNITHEME;
 import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekProfile;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.UpdateProfileURL;
@@ -65,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnSimpan = findViewById(R.id.btn_epSimpan);
         spinTheme = findViewById(R.id.spinTheme);
 
-        List<String> dataset = new LinkedList<>(Arrays.asList("dark", "light", "Three", "Four", "Five"));
+        List<String> dataset = new LinkedList<>(Arrays.asList("dark", "light", "unires", "Four", "Five"));
         spinTheme.attachDataSource(dataset);
         spinTheme.setSelectedIndex(getIndexSelectedTheme());
         spinTheme.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
@@ -78,6 +79,9 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                     case 1:
                         editor.putString("theme", THEMELIGHT);
+                        break;
+                    case 2:
+                        editor.putString("theme", UNITHEME);
                         break;
                     default:
                         editor.putString("theme", THEMEDARK);
@@ -137,6 +141,8 @@ public class ProfileActivity extends AppCompatActivity {
                 return 0;
             case "light":
                 return 1;
+            case "unires":
+                return 2;
             default:
                 return 0;
         }
