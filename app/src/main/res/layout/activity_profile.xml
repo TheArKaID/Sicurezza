@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?themeBackgroundProfile"
+    tools:background="@color/darkThemePrimaryColor"
     tools:context="id.ac.umy.unires.sicurezza.ProfileActivity">
 
-    <!--android:background="@drawable/background_dark_profile"-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,8 @@
                 android:textColor="?themeTextColor"
                 android:textSize="21sp"
                 android:textStyle="bold"
-                tools:text="Wiliam Snoe" />
+                tools:text="Wiliam Snoe"
+                tools:textColor="@color/darkThemeTextColor" />
         </RelativeLayout>
 
         <TextView
@@ -35,7 +36,8 @@
             android:gravity="center"
             android:text="@string/update_profile"
             android:textColor="?themeTextColor"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:textColor="@color/darkThemeTextColor" />
 
         <LinearLayout
             android:layout_width="360dp"
@@ -49,11 +51,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:orientation="horizontal"
                 android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:focusable="true"
-                android:focusableInTouchMode="true">
+                android:paddingEnd="25dp">
 
                 <ImageView
                     android:layout_width="36dp"
@@ -63,18 +65,20 @@
 
                 <EditText
                     android:id="@+id/et_epNama"
-                    android:autofillHints="@string/nama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:autofillHints="@string/nama"
                     android:backgroundTint="?themeTextColor"
-                    android:textColorHint="?themeTextHintColor"
                     android:hint="@string/nama"
                     android:inputType="text"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
                     android:textColor="?themeTextColor"
-                    android:textStyle="bold"/>
+                    android:textColorHint="?themeTextHintColor"
+                    android:textStyle="bold"
+                    tools:backgroundTint="@color/darkThemeTextColor"
+                    tools:textColor="@color/darkThemeTextColor" />
             </LinearLayout>
 
             <LinearLayout
@@ -88,9 +92,9 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
+                    android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_key"
-                    android:tint="?themeTextColor"
-                    android:layout_gravity="center_vertical"/>
+                    android:tint="?themeTextColor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,13 +107,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:backgroundTint="?themeTextColor"
-                        android:textColorHint="?themeTextHintColor"
                         android:hint="@string/password"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
                         android:textColor="?themeTextColor"
-                        android:textStyle="bold" />
+                        android:textColorHint="?themeTextHintColor"
+                        android:textStyle="bold"
+                        tools:backgroundTint="@color/darkThemeTextColor"
+                        tools:textColor="@color/darkThemeTextColor" />
 
                     <EditText
                         android:id="@+id/et_repRePassword"
@@ -117,13 +123,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:backgroundTint="?themeTextColor"
-                        android:textColorHint="?themeTextHintColor"
                         android:hint="@string/re_password"
                         android:inputType="textPassword"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
                         android:textColor="?themeTextColor"
-                        android:textStyle="bold" />
+                        android:textColorHint="?themeTextHintColor"
+                        android:textStyle="bold"
+                        tools:backgroundTint="@color/darkThemeTextColor"
+                        tools:textColor="@color/darkThemeTextColor" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -139,52 +147,60 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:src="@drawable/ic_passcode"
-                    android:tint="?themeTextColor"/>
+                    android:tint="?themeTextColor" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/type_0000_to_remove"
                         android:textColor="?themeTextColor"
                         android:textSize="10sp"
-                        android:layout_gravity="end"
-                        android:text="@string/type_0000_to_remove"/>
+                        tools:textColor="@color/darkThemeTextColor" />
+
                     <EditText
                         android:id="@+id/et_epPasscode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:backgroundTint="?themeTextColor"
-                        android:textColorHint="?themeTextHintColor"
                         android:hint="@string/passcode_hint"
                         android:inputType="numberPassword"
                         android:maxLength="4"
                         android:paddingStart="20dp"
                         android:paddingEnd="20dp"
                         android:textColor="?themeTextColor"
-                        android:textStyle="bold" />
+                        android:textColorHint="?themeTextHintColor"
+                        android:textStyle="bold"
+                        tools:backgroundTint="@color/darkThemeTextColor"
+                        tools:textColor="@color/darkThemeTextColor" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end"
                 android:layout_marginTop="15dp"
-                android:paddingEnd="25dp"
-                android:paddingStart="25dp">
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp">
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textColor="?themeTextColor"
                     android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
                     android:gravity="end"
+                    android:text="@string/white_theme"
+                    android:textColor="?themeTextColor"
                     android:textStyle="bold|italic"
-                    android:text="@string/white_theme"/>
+                    tools:textColor="@color/darkThemeTextColor" />
 
                 <ToggleButton
                     android:id="@+id/tgl_changeTheme"
@@ -192,6 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end" />
             </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -199,7 +216,8 @@
                 android:gravity="center"
                 android:text="@string/konfirmasi_password"
                 android:textColor="?themeTextColor"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:textColor="@color/darkThemeTextColor" />
 
             <EditText
                 android:id="@+id/et_confirmpass"
@@ -207,13 +225,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:backgroundTint="?themeTextColor"
-                android:textColorHint="?themeTextHintColor"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"
                 android:textColor="?themeTextColor"
-                android:textStyle="bold" />
+                android:textColorHint="?themeTextHintColor"
+                android:textStyle="bold"
+                tools:textColor="@color/darkThemeTextColor" />
 
             <Button
                 android:id="@+id/btn_epSimpan"
@@ -221,10 +240,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
                 android:background="@drawable/btn_edit_profile"
                 android:text="@string/simpan"
                 android:textColor="?themePrimary"
-                android:layout_marginBottom="35dp"/>
+                tools:textColor="@color/darkThemeTextColor" />
         </LinearLayout>
 
     </LinearLayout>

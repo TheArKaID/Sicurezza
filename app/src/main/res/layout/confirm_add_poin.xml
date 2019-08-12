@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="15dp">
 
     <android.support.design.widget.TextInputLayout
@@ -17,17 +17,17 @@
             android:id="@+id/input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="@string/optional"
+            android:hint="@string/optional"
             android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="255"
             android:textColor="@color/colorPrimaryDark"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColorLink="@color/colorPrimaryDark"
             android:textCursorDrawable="@color/colorPrimaryDark"
-            android:maxLength="255"
-            android:hint="@string/optional"
             app:backgroundTint="@color/colorPrimaryDark"
-            android:autofillHints="@string/optional"
-            tools:targetApi="o"
-            android:inputType="text" />
+            tools:targetApi="o" />
 
     </android.support.design.widget.TextInputLayout>
 </FrameLayout>

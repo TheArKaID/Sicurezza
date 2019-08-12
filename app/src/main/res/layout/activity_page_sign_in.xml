@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?themeBackgroundColor"
+    tools:background="@color/darkThemePrimaryDarkColor"
     tools:context=".PageSignIn">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="100dp"
         android:background="?themePrimary"
-        android:outlineSpotShadowColor="?themePrimary">
+        android:outlineSpotShadowColor="?themePrimary"
+        tools:background="@color/darkThemePrimaryColor">
 
         <TextView
             android:id="@+id/textView2"
@@ -27,61 +29,68 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/darkThemeTextColor" />
 
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="?themeTextHintColor"
             android:ems="10"
             android:hint="@string/userName"
-            android:textColorHint="?themeTextHintColor"
-            android:textColor="?themeTextColor"
             android:inputType="text"
             android:textAlignment="center"
-            android:backgroundTint="?themeTextHintColor"
+            android:textColor="?themeTextColor"
+            android:textColorHint="?themeTextHintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:backgroundTint="@color/darkThemeHintColor"
+            tools:textColor="@color/darkThemeTextColor" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
-            android:layout_marginEnd="32dp"
-            android:layout_marginStart="32dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="?themeTextHintColor"
             android:ems="10"
             android:hint="@string/password"
-            android:textColorHint="?themeTextHintColor"
-            android:textColor="?themeTextColor"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:backgroundTint="?themeTextHintColor"
+            android:textColor="?themeTextColor"
+            android:textColorHint="?themeTextHintColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+            app:layout_constraintTop_toBottomOf="@+id/etUsername"
+            tools:backgroundTint="@color/darkThemeHintColor"
+            tools:textColor="@color/darkThemeTextColor" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
             android:background="?themePrimaryDark"
+            android:outlineSpotShadowColor="?themePrimaryDark"
             android:text="@string/btnSignIn"
             android:textColor="?themeTextColor"
             android:textSize="18sp"
-            android:outlineSpotShadowColor="?themePrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword"/>
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            tools:background="@color/darkThemePrimaryDarkColor"
+            tools:textColor="@color/darkThemeTextColor" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

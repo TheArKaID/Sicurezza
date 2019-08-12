@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".TankkoFragment">
 
-       <android.support.v7.widget.RecyclerView
-           android:id="@+id/tankko_recycler"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           tools:listitem="@layout/item_tankko" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tankko_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_tankko" />
 
 
 </FrameLayout>

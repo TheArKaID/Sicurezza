@@ -6,23 +6,25 @@
     android:layout_height="match_parent"
     android:background="?themePrimary"
     android:orientation="vertical"
+    tools:background="@color/darkThemePrimaryColor"
     tools:context=".MainActivity">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="0dp"
-        android:layout_weight="0.2"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_weight="0.2"
         android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center"
         android:text="@string/divKeamanan"
         android:textColor="?themeTextColor"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:textColor="@color/darkThemeTextColor" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -30,35 +32,38 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="25dp"
         android:layout_weight="0.5"
         android:contentDescription="@string/divKeamanan"
-        android:src="@mipmap/keamanan"/>
+        android:src="@mipmap/keamanan" />
 
     <Button
         android:id="@+id/btnsignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_gravity="center"
+        android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="8dp"
         android:background="?themePrimaryDark"
+        android:text="@string/btnMasuk"
         android:textColor="?themeTextColor"
-        android:text="@string/btnMasuk" />
+        tools:background="@color/darkThemePrimaryDarkColor"
+        tools:textColor="@color/darkThemeTextColor" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_weight="0.1"
+        android:gravity="center"
         android:text="@string/timeline"
-        android:textColor="?themeTextColor"/>
+        android:textColor="?themeTextColor"
+        tools:textColor="@color/darkThemeTextColor" />
 </LinearLayout>

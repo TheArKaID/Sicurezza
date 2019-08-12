@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?themePrimary"
+    tools:background="@color/darkThemePrimaryColor"
     tools:context=".AddPoint">
 
     <android.support.design.widget.AppBarLayout
@@ -16,7 +17,8 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?themePrimary">
+            android:background="?themePrimary"
+            tools:background="@color/darkThemePrimaryColor">
 
             <TextView
                 android:layout_width="match_parent"
@@ -30,7 +32,8 @@
                 android:textAlignment="center"
                 android:textColor="?themeTextColor"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:textColor="@color/darkThemeTextColor" />
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?themePrimary"
+    tools:background="@color/darkThemePrimaryColor"
     tools:context=".Resident">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -22,7 +23,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.100000024"
+        tools:src="@drawable/ic_person_white_24dp" />
 
 
     <TextView
@@ -43,7 +45,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleImageView"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.035"
+        tools:textColor="@color/darkThemeTextColor" />
 
     <TextView
         android:id="@+id/tv_DetailIDResident"
@@ -60,7 +63,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_DetailNamaReident"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:textColor="@color/darkThemeTextColor" />
 
     <TextView
         android:id="@+id/textView7"
@@ -79,7 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_DetailIDResident"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:textColor="@color/darkThemeTextColor" />
 
 
     <android.support.v7.widget.RecyclerView
@@ -97,13 +102,13 @@
         android:layout_height="128dp"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_custom_ok_white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rv_detailpoin"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="@+id/rv_detailpoin"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.158"
-        android:visibility="gone"/>
+        app:layout_constraintVertical_bias="0.158" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -116,6 +121,8 @@
         android:tint="?themeTextColor"
         app:backgroundTint="?themePrimaryDark"
         app:layout_constraintBottom_toBottomOf="@+id/rv_detailpoin"
-        app:layout_constraintEnd_toEndOf="@+id/rv_detailpoin" />
+        app:layout_constraintEnd_toEndOf="@+id/rv_detailpoin"
+        tools:textColor="@color/darkThemeTextColor"
+        tools:tint="@color/darkThemePrimaryColor" />
 
 </android.support.constraint.ConstraintLayout>

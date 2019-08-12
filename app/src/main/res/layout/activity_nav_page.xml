@@ -11,7 +11,8 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="?themePrimary">
+        android:background="?themePrimary"
+        tools:background="@color/darkThemePrimaryColor">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -29,7 +30,8 @@
                 android:tint="?themeTextColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:tint="@color/darkThemeTextColor" />
 
             <TextView
                 android:id="@+id/tv_TitleNav"
@@ -48,7 +50,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/iv_setting"
                 app:layout_constraintStart_toEndOf="@+id/iv_logout"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.47" />
+                app:layout_constraintVertical_bias="0.47"
+                tools:textColor="@color/darkThemeTextColor" />
 
             <ImageView
                 android:id="@+id/iv_setting"
@@ -60,7 +63,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.517" />
+                app:layout_constraintVertical_bias="0.517"
+                tools:tint="@color/darkThemeTextColor" />
         </android.support.constraint.ConstraintLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -72,7 +76,8 @@
         android:background="?themePrimary"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@color/darkThemePrimaryColor">
 
 
     </FrameLayout>
@@ -90,7 +95,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_nav">
+        app:menu="@menu/bottom_nav"
+        tools:background="@color/darkThemePrimaryColor"
+        tools:itemIconTint="@color/darkThemeTextColor"
+        tools:itemTextColor="@color/darkThemeTextColor">
 
     </android.support.design.widget.BottomNavigationView>
 
