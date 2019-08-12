@@ -1,8 +1,6 @@
 package id.ac.umy.unires.sicurezza;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +8,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,7 +18,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.angmarch.views.NiceSpinner;
+import org.angmarch.views.OnSpinnerItemSelectedListener;
+
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,7 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     EditText etNama, etPassword, etRepassword, etPasscode, etConfirmPass;
     String Nama, Password, Repassword, Passcode, ConfirmPass;
     Button btnSimpan;
-    ToggleButton tgl_changeTheme;
+    NiceSpinner spinTheme;
 
     boolean isChangePass = false;
     SharedPreferences pref;
@@ -61,19 +63,27 @@ public class ProfileActivity extends AppCompatActivity {
         etConfirmPass = findViewById(R.id.et_confirmpass);
         etRepassword = findViewById(R.id.et_repRePassword);
         btnSimpan = findViewById(R.id.btn_epSimpan);
-        tgl_changeTheme = findViewById(R.id.tgl_changeTheme);
+        spinTheme = findViewById(R.id.spinTheme);
 
-        cekThemeStatus();
-        tgl_changeTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        List<String> dataset = new LinkedList<>(Arrays.asList("dark", "light", "Three", "Four", "Five"));
+        spinTheme.attachDataSource(dataset);
+        spinTheme.setSelectedIndex(getIndexSelectedTheme());
+        spinTheme.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
+            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
                 editor = pref.edit();
-                if(isChecked)
-                    editor.putString("theme", THEMELIGHT);
-                else
-                    editor.putString("theme", THEMEDARK);
+                switch (position){
+                    case 0:
+                        editor.putString("theme", THEMEDARK);
+                        break;
+                    case 1:
+                        editor.putString("theme", THEMELIGHT);
+                        break;
+                    default:
+                        editor.putString("theme", THEMEDARK);
+                }
 
-                Toast.makeText(ProfileActivity.this, "Tema Diubah. "+(isChecked?"Light Theme.":"Dark Theme."), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "Tema Diubah. "+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
                 restartApp();
                 editor.apply();
             }
@@ -118,11 +128,18 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void cekThemeStatus() {
+    private int getIndexSelectedTheme() {
         pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-        String color = pref.getString("theme", THEMEDARK);
-        boolean isWhite = !(color != null && color.equals(THEMEDARK));
-        tgl_changeTheme.setChecked(isWhite);
+        String currentTheme = pref.getString("theme", "dark");
+
+        switch (Objects.requireNonNull(currentTheme)){
+            case "dark":
+                return 0;
+            case "light":
+                return 1;
+            default:
+                return 0;
+        }
     }
 
     private void restartApp() {

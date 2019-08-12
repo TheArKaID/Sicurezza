@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?themeBackgroundProfile"
     tools:background="@color/darkThemePrimaryColor"
     tools:context="id.ac.umy.unires.sicurezza.ProfileActivity">
@@ -186,27 +187,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:gravity="end"
                 android:orientation="horizontal"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="@string/white_theme"
+                    android:gravity="start"
+                    android:text="@string/theme_selector"
                     android:textColor="?themeTextColor"
                     android:textStyle="bold|italic"
                     tools:textColor="@color/darkThemeTextColor" />
 
-                <ToggleButton
-                    android:id="@+id/tgl_changeTheme"
-                    android:layout_width="wrap_content"
+                <org.angmarch.views.NiceSpinner
+                    android:id="@+id/spinTheme"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end" />
+                    app:popupTextAlignment="start"/>
             </LinearLayout>
 
             <TextView
