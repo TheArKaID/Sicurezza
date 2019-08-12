@@ -49,7 +49,7 @@
         android:layout_marginBottom="8dp"
         android:background="?themeBackgroundButtonColor"
         android:text="@string/btnMasuk"
-        android:textColor="?themeTextColor"
+        android:textColor="?themeTextButtonColor"
         tools:background="@color/darkThemePrimaryColor"
         tools:textColor="@color/darkThemeTextColor" />
 

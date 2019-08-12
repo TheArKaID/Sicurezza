@@ -23,5 +23,8 @@
     <attr name="themeBackgroundItemResident" format="reference"/>
     <attr name="themeFloatingBackground" format="reference"/>
     <attr name="themeFloatingTint" format="reference"/>
+    <attr name="themeBackgroundSpinner" format="reference"/>
+    <attr name="themeTextSpinner" format="reference"/>
+    <attr name="themeTextButtonColor" format="reference"/>
 
 </resources>

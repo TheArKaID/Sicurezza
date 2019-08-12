@@ -207,7 +207,11 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    app:popupTextAlignment="start"/>
+                    app:popupTextAlignment="start"
+                    android:backgroundTint="?themeBackgroundSpinner"
+                    android:textColor="?themeTextSpinner"
+                    tools:backgroundTint="@color/lightThemePrimaryDarkColor"
+                    tools:textColor="@color/darkThemePrimaryColor"/>
             </LinearLayout>
 
             <TextView
@@ -245,7 +249,7 @@
                 android:background="@drawable/btn_edit_profile"
                 android:text="@string/simpan"
                 android:textColor="?themeTextColor"
-                tools:textColor="@color/darkThemeTextColor"
+                tools:textColor="@color/darkThemePrimaryDarkColor"
                 tools:background="@color/darkThemeTextColor"/>
         </LinearLayout>
 

@@ -15,16 +15,36 @@
         <item name="themeTextColor">@color/darkThemeTextColor</item>
         <item name="themeTextHintColor">@color/darkThemeHintColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
+
+        <!--Main Page Style-->
         <item name="themeBackgroundMain">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryColor</item>
-        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
-        <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
-        <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeTextTitleMainColor">@color/darkThemeTextColor</item>
+        <item name="themeTextButtonColor">@color/darkThemePrimaryColor</item>
+
+        <!--Nav Page Style-->
         <item name="themeBackgroundNavBar">@color/darkThemeBackgroundActionBarColor</item>
-        <item name="themeTintIconNavBar">@color/darkThemeTintIconNavBarColor</item>
+        <item name="themeTintIconNavBar">@color/darkThemeTextColor</item>
+        <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeTextNavBar">@color/darkThemeTextColor</item>
+        <item name="themeFrame">@color/darkThemePrimaryColor</item>
+
+        <!--List Item Style-->
+        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
+        <item name="themeBackgroundItemResident">@color/darkThemePrimaryColor</item>
+        <item name="themeTextItemResidentColor">@color/darkThemeTextColor</item>
         <item name="themeBackgroundItem">@color/darkThemePrimaryColor</item>
+
+        <!--Resident Style-->
         <item name="themeFloatingBackground">@color/darkThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/darkThemeTextColor</item>
+        <item name="themeBackgroundResident">@color/darkThemePrimaryDarkColor</item>
+
+        <!--Profile Style-->
+        <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
+        <item name="themeBackgroundSpinner">@color/darkThemeHintColor</item>
+        <item name="themeTextProfileColor">@color/darkThemeTextColor</item>
+        <item name="themeTextSpinner">@color/darkThemePrimaryColor</item>
     </style>
 
     <style name="AppTheme.LightTheme">
@@ -34,41 +54,75 @@
         <item name="themeTextColor">@color/lightThemeTextColor</item>
         <item name="themeTextHintColor">@color/lightThemeHintColor</item>
         <item name="themeBackgroundColor">@color/lightThemePrimaryColor</item>
-        <item name="themeBackgroundMain">@color/lightThemePrimaryColor</item>
         <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
-        <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
-        <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
-        <item name="themeBackgroundActionBar">@color/lightThemeBackgroundActionBarColor</item>
+
+        <!--Main Page Style-->
+        <item name="themeBackgroundMain">@color/lightThemePrimaryColor</item>
+        <item name="themeTextTitleMainColor">@color/lightThemeTextColor</item>
+        <item name="themeTextButtonColor">@color/lightThemeTextColor</item>
+
+        <!--Nav Page Style-->
+        <item name="themeTextNavBar">@color/lightThemeTextColor</item>
         <item name="themeBackgroundNavBar">@color/lightThemeBackgroundNavBarColor</item>
         <item name="themeTintIconNavBar">@color/lightThemeTintIconNavBarColor</item>
+        <item name="themeBackgroundActionBar">@color/lightThemeBackgroundActionBarColor</item>
+        <item name="themeFrame">@color/lightThemePrimaryColor</item>
+
+        <!--List Item Style-->
+        <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
         <item name="themeBackgroundItem">@color/lightThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundItemResident">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextItemResidentColor">@color/lightThemeTextColor</item>
+
+        <!--Resident Style-->
+        <item name="themeBackgroundResident">@color/lightThemePrimaryColor</item>
         <item name="themeFloatingBackground">@color/lightThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/lightThemeTextColor</item>
+
+        <!--Profile Style-->
+        <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
+        <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextProfileColor">@color/lightThemeTextColor</item>
+        <item name="themeTextSpinner">@color/lightThemeTextColor</item>
     </style>
 
     <style name="AppTheme.UniresTheme">
         <item name="themePrimary">@color/uniThemePrimaryColor</item>
         <item name="themePrimaryDark">@color/uniThemePrimaryDarkColor</item>
         <item name="themeAccent">@color/uniThemeAccentColor</item>
-        <item name="themeFrame">@color/uniThemeFrameColor</item>
         <item name="themeTextColor">@color/uniThemeTextColor</item>
-        <item name="themeTextNavBar">@color/uniThemeTextNavBarColor</item>
-        <item name="themeTextProfileColor">@color/uniThemeTextNavBarColor</item>
         <item name="themeTextHintColor">@color/uniThemeHintColor</item>
-        <item name="themeTextTitleMainColor">@color/uniThemeTextNavBarColor</item>
-        <item name="themeTextItemResidentColor">@color/uniThemeTextResidentItemColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeBackgroundMain">@mipmap/sicurezza_bg_theme</item>//
         <item name="themeBackgroundButtonColor">@color/uniThemeBackgroundButtonColor</item>
-        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
-        <item name="themeBackgroundProfile">@drawable/background_unires_profile</item>
-        <item name="themeBackgroundActionBar">@color/uniThemeBackgroundActionBarColor</item>
-        <item name="themeBackgroundResident">@color/uniThemeBackgroundResidentColor</item>
+
+        <!--Main Page Style-->
+        <item name="themeBackgroundMain">@mipmap/sicurezza_bg_theme</item>
+        <item name="themeTextTitleMainColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextButtonColor">@color/uniThemeTextColor</item>
+
+        <!--Nav Page Style-->
+        <item name="themeTextNavBar">@color/uniThemeTextNavBarColor</item>
         <item name="themeBackgroundNavBar">@color/uniThemePrimaryColor</item>
         <item name="themeTintIconNavBar">@color/uniThemeTintIconNavBarColor</item>
+        <item name="themeFrame">@color/uniThemeFrameColor</item>
+        <item name="themeBackgroundActionBar">@color/uniThemeBackgroundActionBarColor</item>
+
+        <!--List Item Style-->
         <item name="themeBackgroundItem">@color/uniThemeBackgroundItemColor</item>
+        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
         <item name="themeBackgroundItemResident">@color/uniThemeBackgroundResidentItemColor</item>
+        <item name="themeTextItemResidentColor">@color/uniThemeTextResidentItemColor</item>
+
+        <!--Resident Style-->
+        <item name="themeBackgroundResident">@color/uniThemeBackgroundResidentColor</item>
         <item name="themeFloatingBackground">@color/uniThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/darkThemeTextColor</item>
+
+        <!--Profile Style-->
+        <item name="themeBackgroundProfile">@drawable/background_unires_profile</item>
+        <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextProfileColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextSpinner">@color/uniThemeTextColor</item>
+
     </style>
 </resources>
