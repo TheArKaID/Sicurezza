@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     ProgressDialog progress;
 
-    public static final String THEMEDARK = "dark";
-    public static final String THEMELIGHT = "light";
-    public static final String UNITHEME = "unires";
+    public static final String THEMEDARK = "Dark";
+    public static final String THEMELIGHT = "Light";
+    public static final String UNITHEME = "Unires";
+    public static final String UMYTHEME = "UMY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
                 return R.style.AppTheme_LightTheme;
             case UNITHEME:
                 return R.style.AppTheme_UniresTheme;
+            case UMYTHEME:
+                return R.style.AppTheme_UMYTheme;
             default:
                 return R.style.AppTheme_LightTheme;
         }

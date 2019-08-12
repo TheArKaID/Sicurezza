@@ -30,7 +30,7 @@
                 android:layout_margin="16dp"
                 android:text="@string/PointTitle"
                 android:textAlignment="center"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextAddPointColor"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:textColor="@color/darkThemeTextColor" />

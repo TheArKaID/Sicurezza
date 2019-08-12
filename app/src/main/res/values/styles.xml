@@ -28,6 +28,7 @@
         <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
         <item name="themeTextNavBar">@color/darkThemeTextColor</item>
         <item name="themeFrame">@color/darkThemePrimaryColor</item>
+        <item name="themeTextActionBarColor">@color/darkThemeTextColor</item>
 
         <!--List Item Style-->
         <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
@@ -39,12 +40,18 @@
         <item name="themeFloatingBackground">@color/darkThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/darkThemeTextColor</item>
         <item name="themeBackgroundResident">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeTextResidentColor">@color/darkThemeTextColor</item>
 
         <!--Profile Style-->
         <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
         <item name="themeBackgroundSpinner">@color/darkThemeHintColor</item>
         <item name="themeTextProfileColor">@color/darkThemeTextColor</item>
         <item name="themeTextSpinner">@color/darkThemePrimaryColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextButtonProfileColor">@color/darkThemeTextColor</item>
+
+        <!--Add Point Style-->
+        <item name="themeTextAddPointColor">@color/darkThemeTextColor</item>
     </style>
 
     <style name="AppTheme.LightTheme">
@@ -67,6 +74,7 @@
         <item name="themeTintIconNavBar">@color/lightThemeTintIconNavBarColor</item>
         <item name="themeBackgroundActionBar">@color/lightThemeBackgroundActionBarColor</item>
         <item name="themeFrame">@color/lightThemePrimaryColor</item>
+        <item name="themeTextActionBarColor">@color/lightThemeTextColor</item>
 
         <!--List Item Style-->
         <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
@@ -84,6 +92,12 @@
         <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
         <item name="themeTextProfileColor">@color/lightThemeTextColor</item>
         <item name="themeTextSpinner">@color/lightThemeTextColor</item>
+        <item name="themeTextResidentColor">@color/lightThemeTextColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextButtonProfileColor">@color/lightThemeTextColor</item>
+
+        <!--Add Point Style-->
+        <item name="themeTextAddPointColor">@color/lightThemeTextColor</item>
     </style>
 
     <style name="AppTheme.UniresTheme">
@@ -106,6 +120,7 @@
         <item name="themeTintIconNavBar">@color/uniThemeTintIconNavBarColor</item>
         <item name="themeFrame">@color/uniThemeFrameColor</item>
         <item name="themeBackgroundActionBar">@color/uniThemeBackgroundActionBarColor</item>
+        <item name="themeTextActionBarColor">@color/uniThemeTextColor</item>
 
         <!--List Item Style-->
         <item name="themeBackgroundItem">@color/uniThemeBackgroundItemColor</item>
@@ -117,12 +132,63 @@
         <item name="themeBackgroundResident">@color/uniThemeBackgroundResidentColor</item>
         <item name="themeFloatingBackground">@color/uniThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/darkThemeTextColor</item>
+        <item name="themeTextResidentColor">@color/uniThemeTextColor</item>
 
         <!--Profile Style-->
         <item name="themeBackgroundProfile">@drawable/background_unires_profile</item>
         <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
         <item name="themeTextProfileColor">@color/uniThemeTextNavBarColor</item>
         <item name="themeTextSpinner">@color/uniThemeTextColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/uniThemeBackgroundButtonColor</item>
+        <item name="themeTextButtonProfileColor">@color/uniThemeTextColor</item>
 
+        <!--Add Point Style-->
+        <item name="themeTextAddPointColor">@color/uniThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.UMYTheme">
+        <item name="themePrimary">@color/umyThemePrimaryColor</item>
+        <item name="themePrimaryDark">@color/umyThemePrimaryDarkColor</item>
+        <item name="themeAccent">@color/umyThemeAccentColor</item>
+        <item name="themeTextColor">@color/umyThemeTextColor</item>
+        <item name="themeTextHintColor">@color/umyThemeHintColor</item>
+        <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonColor">@color/umyThemeBackgroundButtonColor</item>
+
+        <!--Main Page Style-->
+        <item name="themeBackgroundMain">@mipmap/umy_bg_theme</item>
+        <item name="themeTextTitleMainColor">@color/umyThemeTextNavBarColor</item>
+        <item name="themeTextButtonColor">@color/umyThemeTextNavBarColor</item>
+
+        <!--Nav Page Style-->
+        <item name="themeTextNavBar">@color/umyThemeTextNavBarColor</item>
+        <item name="themeTextActionBarColor">@color/umyThemeTextNavBarColor</item>
+        <item name="themeBackgroundNavBar">@color/umyThemePrimaryColor</item>
+        <item name="themeTintIconNavBar">@color/umyThemeTintIconNavBarColor</item>
+        <item name="themeFrame">@color/umyThemeFrameColor</item>
+        <item name="themeBackgroundActionBar">@color/umyThemeBackgroundActionBarColor</item>
+
+        <!--List Item Style-->
+        <item name="themeBackgroundItem">@color/umyThemeBackgroundItemColor</item>
+        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
+        <item name="themeBackgroundItemResident">@color/umyThemeAccentColor</item>
+        <item name="themeTextItemResidentColor">@color/umyThemeTextResidentItemColor</item>
+
+        <!--Resident Style-->
+        <item name="themeBackgroundResident">@color/umyThemeBackgroundResidentColor</item>
+        <item name="themeFloatingBackground">@color/umyThemeFloatingBackground</item>
+        <item name="themeFloatingTint">@color/darkThemeTextColor</item>
+        <item name="themeTextResidentColor">@color/darkThemeTextColor</item>
+
+        <!--Profile Style-->
+        <item name="themeBackgroundProfile">@drawable/background_umy_profile</item>
+        <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeTextProfileColor">@color/umyThemeTextNavBarColor</item>
+        <item name="themeTextSpinner">@color/umyThemeTextColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/umyThemeBackgroundActionBarColor</item>
+        <item name="themeTextButtonProfileColor">@color/umyThemeTextNavBarColor</item>
+
+        <!--Add Point Style-->
+        <item name="themeTextAddPointColor">@color/umyThemeTextNavBarColor</item>
     </style>
 </resources>

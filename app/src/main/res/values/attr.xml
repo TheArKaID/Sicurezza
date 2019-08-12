@@ -26,5 +26,10 @@
     <attr name="themeBackgroundSpinner" format="reference"/>
     <attr name="themeTextSpinner" format="reference"/>
     <attr name="themeTextButtonColor" format="reference"/>
+    <attr name="themeTextActionBarColor" format="reference"/>
+    <attr name="themeTextResidentColor" format="reference"/>
+    <attr name="themeBackgroundButtonProfileColor" format="reference"/>
+    <attr name="themeTextButtonProfileColor" format="reference"/>
+    <attr name="themeTextAddPointColor" format="reference"/>
 
 </resources>

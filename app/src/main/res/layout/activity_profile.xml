@@ -248,7 +248,7 @@
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/btn_edit_profile"
                 android:text="@string/simpan"
-                android:textColor="?themeTextColor"
+                android:textColor="?themeTextButtonProfileColor"
                 tools:textColor="@color/darkThemePrimaryDarkColor"
                 tools:background="@color/darkThemeTextColor"/>
         </LinearLayout>

@@ -68,4 +68,23 @@
     <color name="uniThemeTintIconNavBarColor">#FDFDFD</color>
     <color name="uniThemeTextNavBarColor">#FDFDFD</color>
     <color name="uniThemeFloatingBackground">#f6eb14</color>
+
+
+    <!--UMY Theme Color-->
+    <color name="umyThemePrimaryColor">#9f3738</color>
+    <color name="umyThemePrimaryDarkColor">#8A2829</color>
+    <color name="umyThemeAccentColor">#f0b731</color>
+    <color name="umyThemeFrameColor">#FDFDFD</color>
+    <color name="umyThemeTextColor">#020000</color>
+    <color name="umyThemeTextResidentItemColor">#FDFDFD</color>
+    <color name="umyThemeHintColor">#CECECE</color>
+    <color name="umyThemeBackgroundActionBarColor">#2e5842</color>
+    <color name="umyThemeBackgroundButtonColor">#9f3738</color>
+    <color name="umyThemeBackgroundItemColor">#FDFDFD</color>
+    <color name="umyThemeBackgroundResidentColor">#9f3738</color>
+    <color name="umyThemeBackgroundResidentItemColor">#FDFDFD</color>
+    <color name="umyThemeTintIconNavBarColor">#FDFDFD</color>
+    <color name="umyThemeTextNavBarColor">#FDFDFD</color>
+    <color name="umyThemeFloatingBackground">#2e5842</color>
+
 </resources>

@@ -30,6 +30,7 @@ import java.util.Objects;
 
 import static id.ac.umy.unires.sicurezza.MainActivity.THEMEDARK;
 import static id.ac.umy.unires.sicurezza.MainActivity.THEMELIGHT;
+import static id.ac.umy.unires.sicurezza.MainActivity.UMYTHEME;
 import static id.ac.umy.unires.sicurezza.MainActivity.UNITHEME;
 import static id.ac.umy.unires.sicurezza.NavPage.idsenior;
 import static id.ac.umy.unires.sicurezza.utils.ServerAPI.CekProfile;
@@ -66,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnSimpan = findViewById(R.id.btn_epSimpan);
         spinTheme = findViewById(R.id.spinTheme);
 
-        List<String> dataset = new LinkedList<>(Arrays.asList("dark", "light", "unires", "Four", "Five"));
+        List<String> dataset = new LinkedList<>(Arrays.asList(THEMEDARK, THEMELIGHT, UNITHEME, UMYTHEME));
         spinTheme.attachDataSource(dataset);
         spinTheme.setSelectedIndex(getIndexSelectedTheme());
         spinTheme.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
@@ -82,6 +83,9 @@ public class ProfileActivity extends AppCompatActivity {
                         break;
                     case 2:
                         editor.putString("theme", UNITHEME);
+                        break;
+                    case 3:
+                        editor.putString("theme", UMYTHEME);
                         break;
                     default:
                         editor.putString("theme", THEMEDARK);
@@ -134,15 +138,17 @@ public class ProfileActivity extends AppCompatActivity {
 
     private int getIndexSelectedTheme() {
         pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-        String currentTheme = pref.getString("theme", "dark");
+        String currentTheme = pref.getString("theme", "Dark");
 
         switch (Objects.requireNonNull(currentTheme)){
-            case "dark":
+            case THEMEDARK:
                 return 0;
-            case "light":
+            case THEMELIGHT:
                 return 1;
-            case "unires":
+            case UNITHEME:
                 return 2;
+            case UMYTHEME:
+                return 3;
             default:
                 return 0;
         }
