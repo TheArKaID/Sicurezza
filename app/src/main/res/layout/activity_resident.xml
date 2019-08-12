@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?themePrimary"
+    android:background="?themeBackgroundColor"
     tools:background="@color/darkThemePrimaryColor"
     tools:context=".Resident">
 
@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="?themePrimaryDark"
+        android:backgroundTint="?themeFloatingBackground"
         android:src="@drawable/ic_add_black_24dp"
         android:tint="?themeTextColor"
         app:backgroundTint="?themePrimaryDark"

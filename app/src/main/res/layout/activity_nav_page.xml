@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteColors"
     android:orientation="vertical"
     tools:context=".NavPage">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="?themePrimary"
-        tools:background="@color/darkThemePrimaryColor">
+        android:background="?themeBackgroundActionBar"
+        tools:background="@color/darkThemeBackgroundActionBarColor">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -87,8 +86,8 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_weight="0.075"
-        android:background="?themePrimary"
-        app:itemIconTint="?themeTextColor"
+        android:background="?themeBackgroundNavBar"
+        app:itemIconTint="?themeTintIconNavBar"
         app:itemTextColor="?themeTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav"
-        tools:background="@color/darkThemePrimaryColor"
+        tools:background="@color/darkThemeBackgroundNavBarColor"
         tools:itemIconTint="@color/darkThemeTextColor"
         tools:itemTextColor="@color/darkThemeTextColor">
 

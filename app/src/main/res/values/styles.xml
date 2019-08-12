@@ -15,8 +15,15 @@
         <item name="themeTextColor">@color/darkThemeTextColor</item>
         <item name="themeTextHintColor">@color/darkThemeHintColor</item>
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryDarkColor</item>
         <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
         <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
+        <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundNavBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeTintIconNavBar">@color/darkThemeTintIconNavBarColor</item>
+        <item name="themeBackgroundItem">@color/darkThemePrimaryColor</item>
+        <item name="themeFloatingBackground">@color/darkThemeFloatingBackground</item>
+        <item name="themeFloatingTint">@color/darkThemeTextColor</item>
     </style>
 
     <style name="AppTheme.LightTheme">
@@ -25,8 +32,33 @@
         <item name="themeAccent">@color/lightThemeAccentColor</item>
         <item name="themeTextColor">@color/lightThemeTextColor</item>
         <item name="themeTextHintColor">@color/lightThemeHintColor</item>
-        <item name="themeBackgroundColor">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeBackgroundColor">@color/lightThemePrimaryColor</item>
+        <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
         <item name="themeIconRank">@drawable/ic_person_white_24dp</item>
         <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
+        <item name="themeBackgroundActionBar">@color/lightThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundNavBar">@color/lightThemeBackgroundNavBarColor</item>
+        <item name="themeTintIconNavBar">@color/lightThemeTintIconNavBarColor</item>
+        <item name="themeBackgroundItem">@color/lightThemeBackgroundActionBarColor</item>
+        <item name="themeFloatingBackground">@color/lightThemeFloatingBackground</item>
+        <item name="themeFloatingTint">@color/lightThemeTextColor</item>
+    </style>
+
+    <style name="AppTheme.UniresTheme">
+        <item name="themePrimary">@color/darkThemePrimaryColor</item>
+        <item name="themePrimaryDark">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeAccent">@color/whiteMuh3</item>
+        <item name="themeTextColor">@color/darkThemeTextColor</item>
+        <item name="themeTextHintColor">@color/darkThemeHintColor</item>
+        <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeIconRank">@drawable/ic_person_black_24dp</item>
+        <item name="themeBackgroundProfile">@drawable/background_dark_profile</item>
+        <item name="themeBackgroundActionBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundNavBar">@color/darkThemeBackgroundActionBarColor</item>
+        <item name="themeTintIconNavBar">@color/darkThemeTintIconNavBarColor</item>
+        <item name="themeBackgroundItem">@color/darkThemePrimaryColor</item>
+        <item name="themeFloatingBackground">@color/darkThemeFloatingBackground</item>
+        <item name="themeFloatingTint">@color/darkThemeTextColor</item>
     </style>
 </resources>

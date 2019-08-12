@@ -34,12 +34,21 @@
     <color name="darkThemeAccentColor">#b0272b</color>
     <color name="darkThemeTextColor">#eeeeee</color>
     <color name="darkThemeHintColor">#A3A3A3</color>
+    <color name="darkThemeBackgroundActionBarColor">#272727</color>
+    <color name="darkThemeBackgroundNavBarColor">#272727</color>
+    <color name="darkThemeTintIconNavBarColor">#eeeeee</color>
+    <color name="darkThemeBackgroundItemColor">#2C2C2C</color>
+    <color name="darkThemeFloatingBackground">#2C2C2C</color>
 
     <!--Light Theme Color-->
-    <color name="lightThemePrimaryColor">#f7f7f7</color>
-    <color name="lightThemePrimaryDarkColor">#eeeeee</color>
+    <color name="lightThemePrimaryColor">#FDFDFD</color>
+    <color name="lightThemePrimaryDarkColor">#CECECE</color>
     <color name="lightThemeAccentColor">#929aab</color>
     <color name="lightThemeTextColor">#2C2C2C</color>
     <color name="lightThemeHintColor">#5E5E5E</color>
+    <color name="lightThemeBackgroundActionBarColor">#F3F3F3</color>
+    <color name="lightThemeBackgroundNavBarColor">#F8F8F8</color>
+    <color name="lightThemeTintIconNavBarColor">#2C2C2C</color>
+    <color name="lightThemeFloatingBackground">#FDFDFD</color>
 
 </resources>

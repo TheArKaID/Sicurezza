@@ -6,7 +6,14 @@
     <attr name="themeTextColor" format="reference"/>
     <attr name="themeTextHintColor" format="reference"/>
     <attr name="themeBackgroundColor" format="reference"/>
+    <attr name="themeBackgroundButtonColor" format="reference"/>
     <attr name="themeIconRank" format="reference"/>
     <attr name="themeBackgroundProfile" format="reference"/>
+    <attr name="themeBackgroundActionBar" format="reference"/>
+    <attr name="themeBackgroundNavBar" format="reference"/>
+    <attr name="themeTintIconNavBar" format="reference"/>
+    <attr name="themeBackgroundItem" format="reference"/>
+    <attr name="themeFloatingBackground" format="reference"/>
+    <attr name="themeFloatingTint" format="reference"/>
 
 </resources>

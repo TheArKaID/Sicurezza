@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?themeBackgroundProfile"
-    tools:background="@color/darkThemePrimaryColor"
+    tools:background="@drawable/background_dark_profile"
     tools:context="id.ac.umy.unires.sicurezza.ProfileActivity">
 
     <LinearLayout
@@ -206,6 +206,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     app:popupTextAlignment="start"/>
             </LinearLayout>
 
@@ -243,8 +244,9 @@
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/btn_edit_profile"
                 android:text="@string/simpan"
-                android:textColor="?themePrimary"
-                tools:textColor="@color/darkThemeTextColor" />
+                android:textColor="?themeTextColor"
+                tools:textColor="@color/darkThemeTextColor"
+                tools:background="@color/darkThemeTextColor"/>
         </LinearLayout>
 
     </LinearLayout>

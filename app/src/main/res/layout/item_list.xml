@@ -9,8 +9,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="?themePrimaryDark"
-        tools:background="@color/darkThemePrimaryColor">
+        android:background="?themeBackgroundItem"
+        tools:background="@color/darkThemeBackgroundItemColor">
 
         <TextView
             android:id="@+id/tv_DetailPoinpoin"

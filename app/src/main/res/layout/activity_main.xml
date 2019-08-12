@@ -4,9 +4,9 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?themePrimary"
+    android:background="?themeBackgroundColor"
     android:orientation="vertical"
-    tools:background="@color/darkThemePrimaryColor"
+    tools:background="@color/darkThemePrimaryDarkColor"
     tools:context=".MainActivity">
 
 
@@ -47,10 +47,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="8dp"
-        android:background="?themePrimaryDark"
+        android:background="?themeBackgroundButtonColor"
         android:text="@string/btnMasuk"
         android:textColor="?themeTextColor"
-        tools:background="@color/darkThemePrimaryDarkColor"
+        tools:background="@color/darkThemePrimaryColor"
         tools:textColor="@color/darkThemeTextColor" />
 
     <TextView

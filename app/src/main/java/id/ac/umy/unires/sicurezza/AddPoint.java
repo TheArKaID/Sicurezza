@@ -142,7 +142,7 @@ public class AddPoint extends AppCompatActivity {
     private void showConfirmAddPoin(final String idpelanggaran, String point) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Anda akan menambahkan Poin");
-        builder.setMessage("Untuk Resident dengan ID : " + idresident + " dan Poin :" + point + "\nTambahkan penjelasan");
+        builder.setMessage("Untuk Resident dengan ID : " + idresident + " dan Poin : " + point + "\nTambahkan penjelasan");
 
         View viewInflated = LayoutInflater.from(this).inflate(R.layout.confirm_add_poin, (ViewGroup) getWindow().getDecorView(), false);
 
