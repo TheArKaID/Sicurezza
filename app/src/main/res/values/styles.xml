@@ -17,6 +17,13 @@
         <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
         <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
 
+        <!--Sign In Page Style-->
+        <item name="themeTextTitleSignInColor">@color/darkThemeTextColor</item>
+        <item name="themeTextEditTextSignInColor">@color/darkThemeTextColor</item>
+        <item name="themeTextButtonSignInColor">@color/darkThemePrimaryColor</item>
+        <item name="themeBackgroundButtonSignInColor">@color/darkThemeTextColor</item>
+        <item name="themeBackgroundSignInColor">@color/darkThemePrimaryColor</item>
+
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@color/darkThemePrimaryDarkColor</item>
         <item name="themeTextTitleMainColor">@color/darkThemeTextColor</item>
@@ -61,8 +68,15 @@
         <item name="themeAccent">@color/lightThemeAccentColor</item>
         <item name="themeTextColor">@color/lightThemeTextColor</item>
         <item name="themeTextHintColor">@color/lightThemeHintColor</item>
-        <item name="themeBackgroundColor">@color/lightThemePrimaryColor</item>
+        <item name="themeBackgroundColor">@color/lightThemePrimaryDarkColor</item>
         <item name="themeBackgroundButtonColor">@color/lightThemePrimaryDarkColor</item>
+
+        <!--Sign In Page Style-->
+        <item name="themeTextTitleSignInColor">@color/lightThemeTextColor</item>
+        <item name="themeTextEditTextSignInColor">@color/lightThemeTextColor</item>
+        <item name="themeTextButtonSignInColor">@color/lightThemePrimaryColor</item>
+        <item name="themeBackgroundButtonSignInColor">@color/lightThemeTextColor</item>
+        <item name="themeBackgroundSignInColor">@color/lightThemePrimaryColor</item>
 
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@color/lightThemePrimaryColor</item>
@@ -108,13 +122,20 @@
         <item name="themeAccent">@color/uniThemeAccentColor</item>
         <item name="themeTextColor">@color/uniThemeTextColor</item>
         <item name="themeTextHintColor">@color/uniThemeHintColor</item>
-        <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundColor">@color/uniThemePrimaryDarkColor</item>
         <item name="themeBackgroundButtonColor">@color/uniThemeBackgroundButtonColor</item>
+
+        <!--Sign In Page Style-->
+        <item name="themeTextTitleSignInColor">@color/uniThemePrimaryDarkColor</item>
+        <item name="themeTextEditTextSignInColor">@color/uniThemePrimaryDarkColor</item>
+        <item name="themeTextButtonSignInColor">@color/uniThemeBackgroundButtonColor</item>
+        <item name="themeBackgroundButtonSignInColor">@color/uniThemePrimaryDarkColor</item>
+        <item name="themeBackgroundSignInColor">@color/uniThemeBackgroundButtonColor</item>
 
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@mipmap/sicurezza_bg_theme</item>
         <item name="themeTextTitleMainColor">@color/uniThemeTextNavBarColor</item>
-        <item name="themeTextBottomMainColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextBottomMainColor">@color/uniThemeTextColor</item>
         <item name="themeTextButtonColor">@color/uniThemeTextColor</item>
 
         <!--Nav Page Style-->
@@ -155,8 +176,15 @@
         <item name="themeAccent">@color/umyThemeAccentColor</item>
         <item name="themeTextColor">@color/umyThemeTextColor</item>
         <item name="themeTextHintColor">@color/umyThemeHintColor</item>
-        <item name="themeBackgroundColor">@color/darkThemePrimaryDarkColor</item>
+        <item name="themeBackgroundColor">@color/umyThemePrimaryDarkColor</item>
         <item name="themeBackgroundButtonColor">@color/umyThemeBackgroundButtonColor</item>
+
+        <!--Sign In Page Style-->
+        <item name="themeTextTitleSignInColor">@color/umyThemeBackgroundActionBarColor</item>
+        <item name="themeTextEditTextSignInColor">@color/umyThemeBackgroundActionBarColor</item>
+        <item name="themeTextButtonSignInColor">@color/umyThemeHintColor</item>
+        <item name="themeBackgroundButtonSignInColor">@color/umyThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundSignInColor">@color/umyThemeHintColor</item>
 
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@mipmap/umy_bg_theme</item>

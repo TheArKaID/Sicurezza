@@ -32,5 +32,10 @@
     <attr name="themeTextButtonProfileColor" format="reference" />
     <attr name="themeTextAddPointColor" format="reference" />
     <attr name="themeTextBottomMainColor" format="reference" />
+    <attr name="themeTextTitleSignInColor" format="reference" />
+    <attr name="themeTextEditTextSignInColor" format="reference" />
+    <attr name="themeTextButtonSignInColor" format="reference" />
+    <attr name="themeBackgroundButtonSignInColor" format="reference" />
+    <attr name="themeBackgroundSignInColor" format="reference" />
 
 </resources>
