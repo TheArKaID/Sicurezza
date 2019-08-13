@@ -3,10 +3,11 @@ package id.ac.umy.unires.sicurezza;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,14 +18,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.chivorn.smartmaterialspinner.SmartMaterialSpinner;
 
-import org.angmarch.views.NiceSpinner;
-import org.angmarch.views.OnSpinnerItemSelectedListener;
-
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -42,7 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
     EditText etNama, etPassword, etRepassword, etPasscode, etConfirmPass;
     String Nama, Password, Repassword, Passcode, ConfirmPass;
     Button btnSimpan;
-    NiceSpinner spinTheme;
+    SmartMaterialSpinner<String> spinTheme;
+    int selectedTheme = 0;
 
     boolean isChangePass = false;
     SharedPreferences pref;
@@ -66,41 +64,14 @@ public class ProfileActivity extends AppCompatActivity {
         etRepassword = findViewById(R.id.et_repRePassword);
         btnSimpan = findViewById(R.id.btn_epSimpan);
         spinTheme = findViewById(R.id.spinTheme);
+        pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
 
-        List<String> dataset = new LinkedList<>(Arrays.asList(THEMEDARK, THEMELIGHT, UNITHEME, UMYTHEME));
-        spinTheme.attachDataSource(dataset);
-        spinTheme.setSelectedIndex(getIndexSelectedTheme());
-        spinTheme.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                editor = pref.edit();
-                switch (position){
-                    case 0:
-                        editor.putString("theme", THEMEDARK);
-                        break;
-                    case 1:
-                        editor.putString("theme", THEMELIGHT);
-                        break;
-                    case 2:
-                        editor.putString("theme", UNITHEME);
-                        break;
-                    case 3:
-                        editor.putString("theme", UMYTHEME);
-                        break;
-                    default:
-                        editor.putString("theme", THEMEDARK);
-                }
+        initSpinTheme();
 
-                Toast.makeText(ProfileActivity.this, "Tema Diubah. "+parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
-                restartApp();
-                editor.apply();
-            }
-        });
-
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             namasenior = savedInstanceState.getStringArray("senior");
             adapter();
-        }else{
+        } else {
             loadingBar("Mengecek Data");
             cekData(idsenior);
         }
@@ -108,39 +79,86 @@ public class ProfileActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Nama = etNama.getText().toString();
-                Password = etPassword.getText().toString();
-                Passcode = etPasscode.getText().toString();
-                ConfirmPass = etConfirmPass.getText().toString();
-                Repassword = etRepassword.getText().toString();
+                simpanData();
+            }
+        });
+    }
 
-                loadingBar("Mengupdate Data");
+    private void simpanData() {
+        Nama = etNama.getText().toString();
+        Password = etPassword.getText().toString();
+        Passcode = etPasscode.getText().toString();
+        ConfirmPass = etConfirmPass.getText().toString();
+        Repassword = etRepassword.getText().toString();
 
-                isChangePass = !TextUtils.isEmpty(Password);
-                pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
-                if(TextUtils.isEmpty(Nama)){
-                    Toast.makeText(ProfileActivity.this, "Nama tidak boleh kosong", Toast.LENGTH_LONG).show();
-                    progress.dismiss();
-                } else if(TextUtils.isEmpty(ConfirmPass)) {
-                    Toast.makeText(ProfileActivity.this, "Konfirmasi Password tidak boleh kosong", Toast.LENGTH_LONG).show();
-                    progress.dismiss();
-                } else {
-                    if(!Password.equals(Repassword)){
-                        Toast.makeText(ProfileActivity.this, "Password baru tidak sama", Toast.LENGTH_LONG).show();
-                        progress.dismiss();
-                    } else{
-                        updateProfile(Nama, Password, ConfirmPass, isChangePass);
+        loadingBar("Mengupdate Data");
+
+        isChangePass = !TextUtils.isEmpty(Password);
+        if (TextUtils.isEmpty(Nama)) {
+            Toast.makeText(ProfileActivity.this, "Nama tidak boleh kosong", Toast.LENGTH_LONG).show();
+            progress.dismiss();
+        } else if (TextUtils.isEmpty(ConfirmPass)) {
+            Toast.makeText(ProfileActivity.this, "Konfirmasi Password tidak boleh kosong", Toast.LENGTH_LONG).show();
+            progress.dismiss();
+        } else {
+            if (!Password.equals(Repassword)) {
+                Toast.makeText(ProfileActivity.this, "Password baru tidak sama", Toast.LENGTH_LONG).show();
+                progress.dismiss();
+            } else {
+                updateProfile(Nama, Password, ConfirmPass, isChangePass);
+            }
+        }
+    }
+
+    private void initSpinTheme() {
+        ArrayList<String> spinThemeList = new ArrayList<>();
+        spinThemeList.add(THEMEDARK);
+        spinThemeList.add(THEMELIGHT);
+        spinThemeList.add(UNITHEME);
+        spinThemeList.add(UMYTHEME);
+
+        spinTheme.setItem(spinThemeList);
+        spinTheme.setSelection(getIndexSelectedTheme());
+        spinTheme.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (selectedTheme == 1) {
+                    editor = pref.edit();
+                    switch (position) {
+                        case 0:
+                            editor.putString("theme", THEMEDARK);
+                            break;
+                        case 1:
+                            editor.putString("theme", THEMELIGHT);
+                            break;
+                        case 2:
+                            editor.putString("theme", UNITHEME);
+                            break;
+                        case 3:
+                            editor.putString("theme", UMYTHEME);
+                            break;
+                        default:
+                            editor.putString("theme", THEMEDARK);
                     }
-                }
+
+                    Toast.makeText(ProfileActivity.this, "Tema Diubah. " + parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
+                    restartApp();
+                    editor.apply();
+                } else
+                    selectedTheme = 1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
 
     private int getIndexSelectedTheme() {
-        pref = getApplicationContext().getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
         String currentTheme = pref.getString("theme", "Dark");
 
-        switch (Objects.requireNonNull(currentTheme)){
+        switch (Objects.requireNonNull(currentTheme)) {
             case THEMEDARK:
                 return 0;
             case THEMELIGHT:
@@ -156,7 +174,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void restartApp() {
         Intent restartApp = new Intent(this, NavPage.class);
-        restartApp.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        restartApp.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(restartApp);
     }
 
@@ -171,7 +189,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         namasenior = response.split("\n");
-                        namasenior[1]= response;
+                        namasenior[1] = response;
                         adapter();
                         progress.dismiss();
                     }
@@ -179,18 +197,17 @@ public class ProfileActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ProfileActivity.this, error.getMessage()!=null?error.getMessage():"Fail. Refresh Needed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, error.getMessage() != null ? error.getMessage() : "Fail. Refresh Needed", Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("idsenior", idsenior);
                 return params;
             }
-        }
-        ;
+        };
         Volley.newRequestQueue(this).add(request);
     }
 
@@ -199,19 +216,19 @@ public class ProfileActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        if(response.equals("berhasil")){
+                        if (response.equals("berhasil")) {
                             pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
                             editor = pref.edit();
                             editor.putString("password", password);
                             editor.apply();
 
-                            if(!TextUtils.isEmpty(Passcode)){
+                            if (!TextUtils.isEmpty(Passcode)) {
                                 editor = pref.edit();
-                                if(Passcode.equals("0000")){
+                                if (Passcode.equals("0000")) {
                                     editor.putString("pin", null);
                                     editor.apply();
                                     Toast.makeText(ProfileActivity.this, "PIN dihapus", Toast.LENGTH_SHORT).show();
-                                }else{
+                                } else {
                                     editor.putString("pin", Passcode);
                                     editor.apply();
                                     Toast.makeText(ProfileActivity.this, "PIN diperbaharui", Toast.LENGTH_SHORT).show();
@@ -223,7 +240,7 @@ public class ProfileActivity extends AppCompatActivity {
                             etPassword.setText("");
                             etRepassword.setText("");
                             Toast.makeText(ProfileActivity.this, response, Toast.LENGTH_LONG).show();
-                        } else{
+                        } else {
                             Toast.makeText(ProfileActivity.this, response, Toast.LENGTH_LONG).show();
                         }
                         progress.dismiss();
@@ -232,10 +249,10 @@ public class ProfileActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ProfileActivity.this, error.getMessage()!=null ? error.getMessage() : "Fail", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, error.getMessage() != null ? error.getMessage() : "Fail", Toast.LENGTH_SHORT).show();
                         progress.dismiss();
                     }
-                }){
+                }) {
             @Override
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();

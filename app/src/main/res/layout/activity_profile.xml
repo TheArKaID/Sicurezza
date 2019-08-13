@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?themeBackgroundProfile"
     tools:background="@drawable/background_dark_profile"
     tools:context="id.ac.umy.unires.sicurezza.ProfileActivity">
@@ -201,17 +200,18 @@
                     android:textStyle="bold|italic"
                     tools:textColor="@color/darkThemeTextColor" />
 
-                <org.angmarch.views.NiceSpinner
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
                     android:id="@+id/spinTheme"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    app:popupTextAlignment="start"
-                    android:backgroundTint="?themeBackgroundSpinner"
+                    android:layout_weight="1"
+                    android:background="?themeBackgroundSpinner"
+                    android:paddingStart="16dp"
+                    android:spinnerMode="dialog"
                     android:textColor="?themeTextSpinner"
-                    tools:backgroundTint="@color/lightThemePrimaryDarkColor"
-                    tools:textColor="@color/darkThemePrimaryColor"/>
+                    tools:background="@color/lightThemePrimaryDarkColor"
+                    tools:textColor="@color/darkThemePrimaryColor" />
             </LinearLayout>
 
             <TextView
@@ -249,8 +249,8 @@
                 android:background="@drawable/btn_edit_profile"
                 android:text="@string/simpan"
                 android:textColor="?themeTextButtonProfileColor"
-                tools:textColor="@color/darkThemePrimaryDarkColor"
-                tools:background="@color/darkThemeTextColor"/>
+                tools:background="@color/darkThemeTextColor"
+                tools:textColor="@color/darkThemePrimaryDarkColor" />
         </LinearLayout>
 
     </LinearLayout>

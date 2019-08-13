@@ -64,6 +64,6 @@
         android:layout_weight="0.1"
         android:gravity="center"
         android:text="@string/timeline"
-        android:textColor="?themeTextColor"
+        android:textColor="?themeTextBottomMainColor"
         tools:textColor="@color/darkThemeTextColor" />
 </LinearLayout>

@@ -21,6 +21,7 @@
         <item name="themeBackgroundMain">@color/darkThemePrimaryDarkColor</item>
         <item name="themeTextTitleMainColor">@color/darkThemeTextColor</item>
         <item name="themeTextButtonColor">@color/darkThemePrimaryColor</item>
+        <item name="themeTextBottomMainColor">@color/darkThemeTextColor</item>
 
         <!--Nav Page Style-->
         <item name="themeBackgroundNavBar">@color/darkThemeBackgroundActionBarColor</item>
@@ -47,7 +48,7 @@
         <item name="themeBackgroundSpinner">@color/darkThemeHintColor</item>
         <item name="themeTextProfileColor">@color/darkThemeTextColor</item>
         <item name="themeTextSpinner">@color/darkThemePrimaryColor</item>
-        <item name="themeBackgroundButtonProfileColor">@color/lightThemePrimaryDarkColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/darkThemePrimaryDarkColor</item>
         <item name="themeTextButtonProfileColor">@color/darkThemeTextColor</item>
 
         <!--Add Point Style-->
@@ -66,6 +67,7 @@
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@color/lightThemePrimaryColor</item>
         <item name="themeTextTitleMainColor">@color/lightThemeTextColor</item>
+        <item name="themeTextBottomMainColor">@color/lightThemeTextColor</item>
         <item name="themeTextButtonColor">@color/lightThemeTextColor</item>
 
         <!--Nav Page Style-->
@@ -86,13 +88,13 @@
         <item name="themeBackgroundResident">@color/lightThemePrimaryColor</item>
         <item name="themeFloatingBackground">@color/lightThemeFloatingBackground</item>
         <item name="themeFloatingTint">@color/lightThemeTextColor</item>
+        <item name="themeTextResidentColor">@color/lightThemeTextColor</item>
 
         <!--Profile Style-->
         <item name="themeBackgroundProfile">@drawable/background_light_profile</item>
         <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
         <item name="themeTextProfileColor">@color/lightThemeTextColor</item>
         <item name="themeTextSpinner">@color/lightThemeTextColor</item>
-        <item name="themeTextResidentColor">@color/lightThemeTextColor</item>
         <item name="themeBackgroundButtonProfileColor">@color/lightThemePrimaryDarkColor</item>
         <item name="themeTextButtonProfileColor">@color/lightThemeTextColor</item>
 
@@ -112,6 +114,7 @@
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@mipmap/sicurezza_bg_theme</item>
         <item name="themeTextTitleMainColor">@color/uniThemeTextNavBarColor</item>
+        <item name="themeTextBottomMainColor">@color/uniThemeTextNavBarColor</item>
         <item name="themeTextButtonColor">@color/uniThemeTextColor</item>
 
         <!--Nav Page Style-->
@@ -158,6 +161,7 @@
         <!--Main Page Style-->
         <item name="themeBackgroundMain">@mipmap/umy_bg_theme</item>
         <item name="themeTextTitleMainColor">@color/umyThemeTextNavBarColor</item>
+        <item name="themeTextBottomMainColor">@color/umyThemeTextNavBarColor</item>
         <item name="themeTextButtonColor">@color/umyThemeTextNavBarColor</item>
 
         <!--Nav Page Style-->
@@ -185,7 +189,8 @@
         <item name="themeBackgroundSpinner">@color/lightThemePrimaryDarkColor</item>
         <item name="themeTextProfileColor">@color/umyThemeTextNavBarColor</item>
         <item name="themeTextSpinner">@color/umyThemeTextColor</item>
-        <item name="themeBackgroundButtonProfileColor">@color/umyThemeBackgroundActionBarColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/umyThemeBackgroundActionBarColor
+        </item>
         <item name="themeTextButtonProfileColor">@color/umyThemeTextNavBarColor</item>
 
         <!--Add Point Style-->
