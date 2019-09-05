@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ProfileBackground" parent="AppTheme">
+        <item name="android:windowBackground">?themeBackgroundProfile</item>
+    </style>
+
     <style name="AppTheme.DarkTheme">
         <item name="themePrimary">@color/darkThemePrimaryColor</item>
         <item name="themePrimaryDark">@color/darkThemePrimaryDarkColor</item>
@@ -55,8 +59,8 @@
         <item name="themeBackgroundSpinner">@color/darkThemeHintColor</item>
         <item name="themeTextProfileColor">@color/darkThemeTextColor</item>
         <item name="themeTextSpinner">@color/darkThemePrimaryColor</item>
-        <item name="themeBackgroundButtonProfileColor">@color/darkThemePrimaryDarkColor</item>
-        <item name="themeTextButtonProfileColor">@color/darkThemeTextColor</item>
+        <item name="themeBackgroundButtonProfileColor">@color/darkThemeHintColor</item>
+        <item name="themeTextButtonProfileColor">@color/darkThemePrimaryDarkColor</item>
 
         <!--Add Point Style-->
         <item name="themeTextAddPointColor">@color/darkThemeTextColor</item>

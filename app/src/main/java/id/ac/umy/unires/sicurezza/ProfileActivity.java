@@ -66,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
         spinTheme = findViewById(R.id.spinTheme);
         pref = getSharedPreferences("id.ac.umy.unires.sicurezza", MODE_PRIVATE);
 
+        setBackground();
         initSpinTheme();
 
         if (savedInstanceState != null) {
@@ -82,6 +83,28 @@ public class ProfileActivity extends AppCompatActivity {
                 simpanData();
             }
         });
+    }
+
+    private void setBackground() {
+        int resid;
+        switch (Objects.requireNonNull(pref.getString("theme", THEMEDARK))){
+            case THEMEDARK:
+                resid = R.drawable.background_dark_profile;
+                break;
+            case THEMELIGHT:
+                resid = R.drawable.background_light_profile;
+                break;
+            case UNITHEME:
+                resid = R.drawable.background_unires_profile;
+                break;
+            case UMYTHEME:
+                resid = R.drawable.background_umy_profile;
+                break;
+            default:
+                resid = R.drawable.background_dark_profile;
+                break;
+        }
+        this.getWindow().setBackgroundDrawableResource(resid);
     }
 
     private void simpanData() {
@@ -156,7 +179,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private int getIndexSelectedTheme() {
-        String currentTheme = pref.getString("theme", "Dark");
+        String currentTheme = pref.getString("theme", THEMEDARK);
 
         switch (Objects.requireNonNull(currentTheme)) {
             case THEMEDARK:
